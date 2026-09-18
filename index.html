@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Simple Hair Cards — Documentação / Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="shortcut icon" href="assets/img/en/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+  <div class="hero-outer">
+    <span class="eyebrow-tag">Addon for Blender</span>
+    <h1>Simple Hair Cards</h1>
+    <p class="lede lang-pt">Simples de usar. Poderoso por dentro. Este guia cobre tudo que você precisa pra usar bem.</p>
+    <p class="lede lang-en">Simple to use. Powerful under the hood. This guide covers everything you need to use it well.</p>
+  </div>
+
+  <div class="panel-wrap">
+    <div class="panel">
+      <div class="shell">
+
+        <aside class="sidebar">
+          <p class="brand lang-pt">Documentação</p>
+          <p class="brand lang-en">Documentation</p>
+          <p class="brand-sub lang-pt">v1.0 · Desenvolvido para o <strong>Blender 4.3.0</strong> (Testado também em 4.2 LTS, 4.5 LTS e 5.2 LTS)</p>
+          <p class="brand-sub lang-en">v1.0 · Designed for <strong>Blender 4.3.0</strong> (Also tested on 4.2 LTS, 4.5 LTS, and 5.2 LTS)</p>
+          <div class="lang-switch" role="group" aria-label="Language / Idioma">
+            <button type="button" class="lang-switch-btn" data-lang-choice="pt">PT</button>
+            <button type="button" class="lang-switch-btn" data-lang-choice="en">EN</button>
+          </div>
+          <nav class="toc" id="toc">
+            <p class="group-label lang-pt">Comece aqui</p>
+            <p class="group-label lang-en">Start here</p>
+            <a href="#inicio-rapido" class="lang-pt">Início rápido</a>
+            <a href="#inicio-rapido" class="lang-en">Quick start</a>
+            <a href="#abas" class="lang-pt">As abas do addon</a>
+            <a href="#abas" class="lang-en">The addon's tabs</a>
+            <p class="group-label lang-pt">Criar e modelar</p>
+            <p class="group-label lang-en">Create and Model</p>
+            <a href="#inverso" class="lang-pt">O inverso de cada pincel</a>
+            <a href="#inverso" class="lang-en">Each brush's "invert"</a>
+            <a href="#nao-obvias" class="lang-pt">Coisas que não são óbvias</a>
+            <a href="#nao-obvias" class="lang-en">Things that aren't obvious</a>
+            <a href="#path" class="lang-pt">O Path da Trança/Corda</a>
+            <a href="#path" class="lang-en">The Braid/Rope Path</a>
+            <a href="#controle" class="lang-pt">Path vs. Geometria</a>
+            <a href="#controle" class="lang-en">Path vs. Geometry</a>
+            <a href="#composto" class="lang-pt">Path Vinculado (Composto)</a>
+            <a href="#composto" class="lang-en">Linked (Composite) Path</a>
+            <a href="#path-ferramentas" class="lang-pt">Path com as Ferramentas</a>
+            <a href="#path-ferramentas" class="lang-en">Path with the Tools</a>
+            <a href="#seguranca" class="lang-pt">Confirmar reconstrução (Segurança)</a>
+            <a href="#seguranca" class="lang-en">Confirm rebuild (Safety)</a>
+            <p class="group-label lang-pt">Texturizar</p>
+            <p class="group-label lang-en">Texturize</p>
+            <a href="#auto-atualizar" class="lang-pt">Auto-Atualizar</a>
+            <a href="#auto-atualizar" class="lang-en">Auto-Update</a>
+            <a href="#estudio" class="lang-pt">A cena do Estúdio</a>
+            <a href="#estudio" class="lang-en">The Studio scene</a>
+            <a href="#camera-so" class="lang-pt">Usando só a câmera do Estúdio</a>
+            <a href="#camera-so" class="lang-en">Using only the Studio camera</a>
+            <a href="#editor-perfil" class="lang-pt">Editor de Perfil</a>
+            <a href="#editor-perfil" class="lang-en">Profile Editor</a>
+            <a href="#editor-uv" class="lang-pt">Editor de UV</a>
+            <a href="#editor-uv" class="lang-en">UV Editor</a>
+            <a href="#montar-material" class="lang-pt">Montar Material (aba Mapas)</a>
+            <a href="#montar-material" class="lang-en">Build Material (Maps tab)</a>
+            <a href="#otimizar-jogo" class="lang-pt">Otimizar: Prepare for Game</a>
+            <a href="#otimizar-jogo" class="lang-en">Optimize: Prepare for Game</a>
+            <p class="group-label lang-pt">Referência</p>
+            <p class="group-label lang-en">Reference</p>
+            <a href="#faq" class="lang-pt">Perguntas frequentes</a>
+            <a href="#faq" class="lang-en">Frequently asked questions</a>
+            <a href="#limitacoes" class="lang-pt">Limitações conhecidas</a>
+            <a href="#limitacoes" class="lang-en">Known limitations</a>
+            <a href="#atalhos" class="lang-pt">Atalhos de teclado</a>
+            <a href="#atalhos" class="lang-en">Keyboard shortcuts</a>
+          </nav>
+        </aside>
+
+        <main>
+
+          <div id="inicio-rapido">
+            <div id="o-que-e" class="intro-block">
+              <p class="intro-lede lang-pt">O <strong>Simple Hair Cards</strong> transforma o processo de criar mechas, tranças, mapas e materiais num fluxo integrado dentro do Blender — do primeiro fio até a malha pronta pra exportação.</p>
+              <p class="intro-lede lang-en">The <strong>Simple Hair Cards</strong> turns the process of creating strands, braids, maps and materials into a single integrated workflow inside Blender — from the first strand to a mesh ready for export.</p>
+              <p class="intro-tags">
+                <span class="lang-pt">Criar</span><span class="tag-sep">·</span>
+                <span class="lang-en">Create</span><span class="tag-sep">·</span>
+                <span class="lang-pt">Texturizar</span><span class="tag-sep">·</span>
+                <span class="lang-en">Texturize</span><span class="tag-sep">·</span>
+                <span class="lang-pt">Otimizar</span>
+                <span class="lang-en">Optimize</span>
+              </p>
+            </div>
+            <div class="quickstart">
+              <div>
+                <span class="step-n">01</span>
+                <p class="lang-pt"><strong>Editar → Preferências → Add-ons → Instalar...</strong>, selecione o <code>.zip</code> e ative a caixinha.</p>
+                <p class="lang-en"><strong>Edit → Preferences → Add-ons → Install...</strong>, select the <code>.zip</code> and enable the checkbox.</p>
+              </div>
+              <div>
+                <span class="step-n">02</span>
+                <p class="lang-pt">Abra a barra lateral da viewport (<kbd>N</kbd>) e encontre a aba <strong>SHC</strong>.</p>
+                <p class="lang-en">Open the viewport's sidebar (<kbd>N</kbd>) and find the <strong>SHC</strong> tab.</p>
+              </div>
+              <div>
+                <span class="step-n">03</span>
+                <p class="lang-pt">Aba <strong>Criar</strong> → <strong>Criar (Clique)</strong> → clique na superfície do seu modelo. Pronto, sua primeira mecha existe.</p>
+                <p class="lang-en"><strong>Create</strong> tab → <strong>Create (Click)</strong> → click on your model's surface. Done, your first strand exists.</p>
+              </div>
+            </div>
+          </div>
+
+          <section id="abas">
+            <h2 class="lang-pt">As abas do addon</h2>
+            <h2 class="lang-en">The addon's tabs</h2>
+            <p class="section-kicker lang-pt">O que cada seção do painel faz.</p>
+            <p class="section-kicker lang-en">What each section of the panel does.</p>
+
+            <div class="tab-grid">
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Criar</span>
+                <span class="tab-name lang-en">Create</span>
+                <p class="lang-pt">Onde a mecha nasce — três jeitos diferentes de criar, explicados logo abaixo.</p>
+                <p class="lang-en">Where the strand is born — three different ways to create, explained below.</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Modelar</span>
+                <span class="tab-name lang-en">Model</span>
+                <p class="lang-pt">Resolução da curva, pontos de controle e o perfil do fio (Redondo, Fita, Cruzado, Trança/Corda, Personalizado).</p>
+                <p class="lang-en">Curve resolution, control points, and the strand's profile (Round, Ribbon, Crossed, Braid/Rope, Custom).</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Ferramentas</span>
+                <span class="tab-name lang-en">Tools</span>
+                <p class="lang-pt">Os pincéis: Criar (Clique), Pentear, Mover, Ímãs, Divisor (Risca), Laço (Amarrar Corpo), Excluir Cabelo, Crescer / Encurtar, Tesoura.</p>
+                <p class="lang-en">The brushes: Create (Click), Comb, Move, Magnets, Divider (Part), Tie (Bundle Strands), Delete Hair, Grow / Shorten, Scissors.</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Estúdio</span>
+                <span class="tab-name lang-en">Studio</span>
+                <p class="lang-pt">Cena separada, com câmera e luz próprias, pra gerar mapas de textura a partir de uma mecha de referência.</p>
+                <p class="lang-en">A separate scene, with its own camera and light, to generate texture maps from a reference strand.</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Mapas</span>
+                <span class="tab-name lang-en">Maps</span>
+                <p class="lang-pt">Monta o material final a partir dos mapas gerados — inclui o Montar Material, explicado mais abaixo.</p>
+                <p class="lang-en">Builds the final material from the generated maps — includes Build Material, explained further below.</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Otimizar</span>
+                <span class="tab-name lang-en">Optimize</span>
+                <p class="lang-pt">Converte as mechas em malha leve, pronta pra exportar pra game engine.</p>
+                <p class="lang-en">Converts strands into a lightweight mesh, ready to export to a game engine.</p>
+              </div>
+              <div class="tab-row">
+                <span class="tab-name lang-pt">Editor UV</span>
+                <span class="tab-name lang-en">UV Editor</span>
+                <p class="lang-pt">Organiza várias texturas de cabelo num atlas único, com um editor visual de células.</p>
+                <p class="lang-en">Organizes several hair textures into a single atlas, with a visual cell editor.</p>
+              </div>
+            </div>
+
+            <h3 class="lang-pt">Conheça os Painéis</h3>
+            <h3 class="lang-en">Exploring the Panels</h3>
+            <div class="panel-gallery">
+              <figure>
+                <img src="assets/img/pt/aba-ferramentas-pt.png" alt="Painel da aba Ferramentas" class="lang-pt">
+                <img src="assets/img/en/aba-ferramentas.png" alt="Tools tab panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Ferramentas</strong> — a grade de pincéis, com os atalhos comuns listados embaixo.</figcaption>
+                <figcaption class="lang-en"><strong>Tools</strong> — the brush grid, with the common shortcuts listed below.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-modelar-pt.png" alt="Painel da aba Modelar" class="lang-pt">
+                <img src="assets/img/en/aba-modelar.png" alt="Model tab panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Modelar</strong> — escolha do Perfil, Resolução, Pontos de Controle e o Path Vinculado.</figcaption>
+                <figcaption class="lang-en"><strong>Model</strong> — Profile choice, Resolution, Control Points, and the Linked Path.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-mapas-pt.png" alt="Painel da aba Mapas" class="lang-pt">
+                <img src="assets/img/en/aba-mapas.png" alt="Maps tab panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Mapas</strong> — Montar Material e a geração de mapas a partir de uma imagem.</figcaption>
+                <figcaption class="lang-en"><strong>Maps</strong> — Build Material and generating maps from an image.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-estudio-geral-pt.png" alt="Painel geral da aba Estúdio" class="lang-pt">
+                <img src="assets/img/en/aba-estudio-geral.png" alt="Studio tab overview panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Estúdio</strong> — a visão geral: slots, proteção de edição manual e objeto customizado.</figcaption>
+                <figcaption class="lang-en"><strong>Studio</strong> — the overview: slots, manual edit protection, and custom object.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-editor-uv-pt.png" alt="Painel do Editor de UV" class="lang-pt">
+                <img src="assets/img/en/aba-editor-uv.png" alt="UV Editor panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Editor UV</strong> — o recorte manual, com o Recorte e o tamanho do editor.</figcaption>
+                <figcaption class="lang-en"><strong>UV Editor</strong> — the manual crop, with the Crop tool and editor size.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-otimizar-pt.png" alt="Painel da aba Otimizar" class="lang-pt">
+                <img src="assets/img/en/aba-otimizar.png" alt="Optimize tab panel" class="lang-en">
+                <figcaption class="lang-pt"><strong>Otimizar</strong> — reduzir pra mesh leve, ou o bake completo em "Preparar para jogo".</figcaption>
+                <figcaption class="lang-en"><strong>Optimize</strong> — reduce to a light mesh, or the full bake in "Prepare for Game".</figcaption>
+              </figure>
+            </div>
+
+            <h3 class="lang-pt">Perfis em ação</h3>
+            <h3 class="lang-en">Profiles in action</h3>
+
+              <figure class="media-slot">
+                <img src="assets/img/en/perfis-em-acao.gif" alt="Trocando de perfil ao vivo na aba Modelar" class="lang-pt">
+                <img src="assets/img/en/perfis-em-acao.gif" alt="Live profile switching on the Model tab" class="lang-en">
+                <figcaption class="lang-pt">Trocando entre Redondo, Fita e Trança — a mecha se reconstrói na hora.</figcaption>
+                <figcaption class="lang-en">Switching between Round, Ribbon and Braid — the strand rebuilds instantly.</figcaption>
+              </figure>
+          
+
+              <figure class="media-slot">
+                <img src="assets/img/pt/perfis-disponiveis-pt.png" alt="Perfis disponíveis: Redondo, Fita, Cruzado, Trança/Corda e Personalizado" class="lang-pt">
+                <img src="assets/img/en/perfis-disponiveis.png" alt="Available profiles: Round, Ribbon, Cross, Braid/Rope, and Custom" class="lang-en">
+                <figcaption class="lang-pt">Os cinco perfis disponíveis — a Trança/Corda pode usar qualquer um deles, incluindo o Personalizado.</figcaption>
+                <figcaption class="lang-en">The five available profiles — the Braid/Rope can use any of them, including the Custom one.</figcaption>
+              </figure>
+
+            <h3 class="lang-pt">Criar: três jeitos de nascer cabelo</h3>
+            <h3 class="lang-en">Create: three ways to grow hair</h3>
+            <p class="lang-pt">A aba Criar não é uma ferramenta só — são três abordagens diferentes pra chegar no mesmo lugar. Use a que fizer mais sentido pro seu fluxo:</p>
+            <p class="lang-en">The Create tab isn't a single tool — it's three different approaches to reach the same result. Use whichever fits your workflow best:</p>
+            <ul>
+              <li class="lang-pt"><strong>Pincéis (aba Ferramentas)</strong> — o jeito principal e mais usado: pinta mechas diretamente na superfície com os pincéis descritos abaixo.</li>
+              <li class="lang-en"><strong>Brushes (Tools tab)</strong> — the main, most-used way: paint strands directly on the surface with the brushes described below.</li>
+              <li class="lang-pt"><strong>Vertex Group</strong> — cria as mechas a partir de um grupo de vértices já pintado no seu modelo (Weight Paint), útil quando você já tem uma área bem definida por peso.</li>
+              <li class="lang-en"><strong>Vertex Group</strong> — creates strands from a vertex group already painted on your model (Weight Paint), useful when you already have a well-defined area by weight.</li>
+              <li class="lang-pt"><strong>Fita de Cabelo (Ribbon)</strong> — desenha o cabelo como fitas/linhas editadas manualmente, no modo <strong>Editor Preciso</strong>. Clique em <strong>Iniciar</strong> pra desenhar linhas novas; depois de mudar algum ajuste (como Mechas na Fita), clique em <strong>Editar</strong> de novo pra reabrir as linhas já desenhadas e ver a mudança refletida. <strong>É experimental</strong> — funciona, mas ainda está em desenvolvimento e pode mudar em versões futuras.</li>
+              <li class="lang-en"><strong>Hair Ribbon</strong> — draws hair as manually edited ribbons/lines, in <strong>Precise Editor</strong> mode. Click <strong>Start</strong> to draw new lines; after changing a setting (like Strands in Ribbon), click <strong>Edit</strong> again to reopen the lines you've already drawn and see the change reflected. <strong>It's experimental</strong> — it works, but it's still under development and may change in future versions.</li>
+            </ul>
+
+            <h3 class="lang-pt">Os pincéis, em resumo</h3>
+            <h3 class="lang-en">The brushes, in short</h3>
+            <ul>
+              <li class="lang-pt"><strong>Criar (Clique)</strong> — clique e arraste pra desenhar uma mecha nova direto na superfície.</li>
+              <li class="lang-en"><strong>Create (Click)</strong> — click and drag to draw a new strand directly on the surface.</li>
+              <li class="lang-pt"><strong>Pentear</strong> — puxa/dobra mechas existentes, como um pente de verdade.</li>
+              <li class="lang-en"><strong>Comb</strong> — pulls/bends existing strands, like a real comb.</li>
+              <li class="lang-pt"><strong>Ímã de Raiz / Ímã de Ponta</strong> — atrai a raiz ou a ponta de mechas próximas pro ponto clicado.</li>
+              <li class="lang-en"><strong>Root Magnet / Tip Magnet</strong> — attracts the root or the tip of nearby strands toward the clicked point.</li>
+              <li class="lang-pt"><strong>Divisor (Risca)</strong> — separa uma mecha em duas.</li>
+              <li class="lang-en"><strong>Divider (Part)</strong> — splits a strand into two.</li>
+              <li class="lang-pt"><strong>Laço (Amarrar Corpo)</strong> — amarra várias mechas juntas, como uma tiara ou elástico.</li>
+              <li class="lang-en"><strong>Tie (Bundle Strands)</strong> — ties several strands together, like a headband or a hair tie.</li>
+              <li class="lang-pt"><strong>Excluir Cabelo</strong> — remove mechas com um clique/arraste.</li>
+              <li class="lang-en"><strong>Delete Hair</strong> — removes strands with a click/drag.</li>
+              <li class="lang-pt"><strong>Crescer / Encurtar</strong> — alonga (ou encurta) mechas já existentes, esticando a ponta na direção atual delas.</li>
+              <li class="lang-en"><strong>Grow / Shorten</strong> — lengthens (or shortens) existing strands, stretching the tip in its current direction.</li>
+              <li class="lang-pt"><strong>Tesoura</strong> — corta mechas numa linha reta desenhada na tela.</li>
+              <li class="lang-en"><strong>Scissors</strong> — cuts strands along a straight line drawn on screen.</li>
+              <li class="lang-pt"><strong>Mover</strong> — reposiciona uma mecha inteira sem alterar sua forma.</li>
+              <li class="lang-en"><strong>Move</strong> — repositions an entire strand without changing its shape.</li>
+              <li class="lang-pt"><strong>Linha Guia</strong> — marca/desmarca a mecha selecionada como Guia (fica destacada em ciano no viewport); outras mechas próximas podem herdar direção, altura e/ou rotação dela ao clicar em "Aplicar Influência da(s) Guia(s)".</li>
+              <li class="lang-en"><strong>Guide Line</strong> — marks/unmarks the selected strand as a Guide (it gets highlighted in cyan in the viewport); other nearby strands can inherit its direction, height and/or rotation when you click "Apply Guide(s) Influence".</li>
+              <li class="lang-pt"><strong>Influência de Forma Guia</strong> — adiciona uma esfera na cena que atrai o cabelo ao redor dela.</li>
+              <li class="lang-en"><strong>Guide Shape Influence</strong> — adds a sphere to the scene that attracts hair around it.</li>
+            </ul>
+              <figure class="media-slot">
+                <img src="assets/img/en/pinceis-demo.gif" alt="Pincéis do Simple Hair Cards em uso" class="lang-pt">
+                <img src="assets/img/en/pinceis-demo.gif" alt="Simple Hair Cards brushes in use" class="lang-en">
+                <figcaption class="lang-pt">Os pincéis principais em ação: Criar (Clique), Pentear e Ímã de Raiz.</figcaption>
+                <figcaption class="lang-en">The main brushes in action: Create (Click), Comb and Root Magnet.</figcaption>
+              </figure>
+            <h3 id="inverso" class="lang-pt">O "inverso" de cada pincel</h3>
+            <h3 id="inverso" class="lang-en">Each brush's "invert"</h3>
+            <p class="lang-pt">Seis pincéis têm um comportamento oposto ao padrão, guardado numa caixinha própria no painel — e você pode ativar esse oposto <strong>na hora</strong>, sem precisar marcar a caixinha, só segurando <kbd>Ctrl</kbd> enquanto pinta (soltar o Ctrl volta ao normal).</p>
+            <p class="lang-en">Six brushes have an opposite behavior to their default, stored in their own checkbox on the panel — and you can turn that opposite on <strong>on the spot</strong>, without needing to check the box, just by holding <kbd>Ctrl</kbd> while painting (releasing Ctrl goes back to normal).</p>
+            <table class="stack-mobile">
+              <thead class="lang-pt"><tr><th>Pincel</th><th>Padrão</th><th>Inverso (checkbox / Ctrl)</th></tr></thead>
+              <thead class="lang-en"><tr><th>Brush</th><th>Default</th><th>Invert (checkbox / Ctrl)</th></tr></thead>
+              <tbody>
+                <tr class="lang-pt"><td data-label="Pincel">Ímã de Raiz</td><td data-label="Padrão">Atrai a raiz pro ponto clicado</td><td data-label="Inverso">Expulsar Raiz — empurra pra longe</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Root Magnet</td><td data-label="Default">Attracts the root toward the clicked point</td><td data-label="Invert">Repel Root — pushes it away</td></tr>
+                <tr class="lang-pt"><td data-label="Pincel">Ímã de Ponta</td><td data-label="Padrão">Atrai a ponta pro ponto clicado</td><td data-label="Inverso">Expulsar Ponta — empurra pra longe</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Tip Magnet</td><td data-label="Default">Attracts the tip toward the clicked point</td><td data-label="Invert">Repel Tip — pushes it away</td></tr>
+                <tr class="lang-pt"><td data-label="Pincel">Divisor (Risca)</td><td data-label="Padrão">Separa uma mecha em duas</td><td data-label="Inverso">Juntar Raiz — une de volta</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Divider (Part)</td><td data-label="Default">Splits a strand into two</td><td data-label="Invert">Join Root — merges it back</td></tr>
+                <tr class="lang-pt"><td data-label="Pincel">Laço (Amarrar Corpo)</td><td data-label="Padrão">Amarra mechas próximas</td><td data-label="Inverso">Afastar (soltar) — solta em vez de amarrar</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Tie (Bundle Strands)</td><td data-label="Default">Ties nearby strands together</td><td data-label="Invert">Loosen — releases instead of tying</td></tr>
+                <tr class="lang-pt"><td data-label="Pincel">Crescer</td><td data-label="Padrão">Alonga a mecha</td><td data-label="Inverso">Encurtar — em vez de crescer</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Grow</td><td data-label="Default">Lengthens the strand</td><td data-label="Invert">Shorten — instead of growing</td></tr>
+                <tr class="lang-pt"><td data-label="Pincel">Tesoura</td><td data-label="Padrão">Corta e remove a ponta</td><td data-label="Inverso">Manter a ponta — corta e preserva o outro lado</td></tr>
+                <tr class="lang-en"><td data-label="Brush">Scissors</td><td data-label="Default">Cuts and removes the tip</td><td data-label="Invert">Keep the tip — cuts and preserves the other side</td></tr>
+              </tbody>
+            </table>
+            <p class="lang-pt">Os demais (Criar (Clique), Excluir Cabelo, Mover, Linha Guia, Influência de Forma Guia) não têm oposto — só o Pentear tem um modificador parecido: segurar <kbd>Ctrl</kbd> nele ativa um modo de suavização, em vez de inverter a direção.</p>
+            <p class="lang-en">The rest (Create (Click), Delete Hair, Move, Guide Line, Guide Shape Influence) have no opposite — only Comb has a similar modifier: holding <kbd>Ctrl</kbd> on it turns on a smoothing mode, instead of inverting the direction.</p>
+              <figure class="media-slot">
+                <img src="assets/img/en/inverso-ctrl-demo.gif" alt="Segurando Ctrl para inverter o pincel Ímã de Raiz" class="lang-pt">
+                <img src="assets/img/en/inverso-ctrl-demo.gif" alt="Holding Ctrl to invert the Root Magnet brush" class="lang-en">
+                <figcaption class="lang-pt">Segurando Ctrl com o Ímã de Raiz ativo: o comportamento inverte de atrair para expulsar.</figcaption>
+                <figcaption class="lang-en">Holding Ctrl with Root Magnet active: the behavior flips from attracting to repelling.</figcaption>
+              </figure>
+          </section>
+
+          <svg class="strand" viewBox="0 0 640 22" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 11 C 80 -4, 160 26, 240 11 S 400 -4, 480 11 S 600 22, 640 11" />
+          </svg>
+
+          <section id="nao-obvias">
+            <h2 class="lang-pt">Coisas que não são óbvias</h2>
+            <h2 class="lang-en">Things that aren't obvious</h2>
+            <p class="section-kicker lang-pt">Não são bugs — são decisões de design que fazem mais sentido depois de entendidas.</p>
+            <p class="section-kicker lang-en">These aren't bugs — they're design decisions that make more sense once you understand them.</p>
+
+            <h3 id="path" class="lang-pt">O Path da Trança/Corda</h3>
+            <h3 id="path" class="lang-en">The Braid/Rope Path</h3>
+            <p class="lang-pt">Toda Trança/Corda gera <strong>dois objetos</strong>: a trança em si (a malha trançada que você renderiza) e o <strong>Path</strong> — uma curva simples que funciona como o esqueleto dela.</p>
+            <p class="lang-en">Every Braid/Rope creates <strong>two objects</strong>: the braid itself (the braided mesh you render) and the <strong>Path</strong> — a simple curve that acts as its skeleton.</p>
+            <p class="lang-pt">Você edita o Path, não a trança. A malha fica travada pra seleção de propósito, pra você não mexer na geometria errada por engano.</p>
+            <p class="lang-en">You edit the Path, not the braid. The mesh is locked from selection on purpose, so you don't accidentally edit the wrong geometry.</p>
+            <ol>
+              <li class="lang-pt">Selecione o Path (geralmente com <code>_Path</code> no nome, no Outliner).</li>
+              <li class="lang-en">Select the Path (usually named with <code>_Path</code> in it, in the Outliner).</li>
+              <li class="lang-pt">Mova-o, ou entre no Edit Mode (<kbd>Tab</kbd>) e mexa nos pontos.</li>
+              <li class="lang-en">Move it, or enter Edit Mode (<kbd>Tab</kbd>) and adjust the points.</li>
+              <li class="lang-pt">Ao sair do Edit Mode, a trança se reconstrói sozinha.</li>
+              <li class="lang-en">When you exit Edit Mode, the braid rebuilds itself automatically.</li>
+            </ol>
+            <div class="callout">
+              <p class="lang-pt"><strong>Excluir o Path apaga a Trança/Corda inteira junto</strong> — os dois são uma coisa só. Se quiser manter a forma atual mas soltar o vínculo, use o Controle de Geometria (próxima seção) em vez de excluir.</p>
+              <p class="lang-en"><strong>Deleting the Path deletes the entire Braid/Rope with it</strong> — the two are a single thing. If you want to keep the current shape but drop the link, use the Geometry Control (next section) instead of deleting.</p>
+            </div>
+
+            <h3 id="controle" class="lang-pt">Controle: Path vs. Geometria</h3>
+            <h3 id="controle" class="lang-en">Control: Path vs. Geometry</h3>
+            <p class="lang-pt">Toda Trança/Corda (e todo Path Composto) tem uma opção de <strong>Controle</strong>:</p>
+            <p class="lang-en">Every Braid/Rope (and every Composite Path) has a <strong>Control</strong> option:</p>
+            <div class="flow-diagram">
+              <div class="flow-box lang-pt"><strong>Path</strong><span>Path → reconstrução → Trança</span></div>
+              <div class="flow-box lang-en"><strong>Path</strong><span>Path → rebuild → Braid</span></div>
+              <div class="flow-vs">vs.</div>
+              <div class="flow-box lang-pt"><strong>Geometria</strong><span>Trança → edição direta</span></div>
+              <div class="flow-box lang-en"><strong>Geometry</strong><span>Braid → direct edit</span></div>
+            </div>
+            <ul>
+              <li class="lang-pt"><strong>Path</strong> — a forma é calculada a partir do Path toda vez que ele muda. Ideal pra continuar trabalhando de forma procedural. Modo normal de trabalho.</li>
+              <li class="lang-en"><strong>Path</strong> — the shape is computed from the Path every time it changes. Ideal for continuing to work procedurally. The normal way of working.</li>
+              <li class="lang-pt"><strong>Geometria</strong> — a trança vira independente: você edita a malha diretamente, sem o Path sobrescrever mais nada. Ideal quando você quer assumir controle manual da forma final.</li>
+              <li class="lang-en"><strong>Geometry</strong> — the braid becomes independent: you edit the mesh directly, without the Path overwriting anything else. Ideal when you want to take manual control of the final shape.</li>
+            </ul>
+            <p class="lang-pt">Alternar entre os dois preserva a forma atual — não perde trabalho na troca.</p>
+            <p class="lang-en">Switching between the two preserves the current shape — you don't lose work when switching.</p>
+
+            <h3 id="composto" class="lang-pt">Path Vinculado / Composto (Grupo)</h3>
+            <h3 id="composto" class="lang-en">Linked / Composite Path (Group)</h3>
+            <p class="lang-pt">Além do Path individual da Trança, existe o <strong>Path Vinculado (Composto)</strong> — pra fazer várias mechas separadas seguirem um caminho em comum (uma franja ou um topete que precisa se mover junto).</p>
+            <p class="lang-en">Besides the Braid's own individual Path, there's the <strong>Linked (Composite) Path</strong> — used to make several separate strands follow a shared path (a fringe or a topknot that needs to move together).</p>
+            <p class="lang-pt">Excluir esse Path <strong>não apaga</strong> as mechas vinculadas — elas ficam livres, mantendo a forma que tinham no momento da exclusão. É o oposto do Path da Trança, de propósito: aqui as mechas já existiam antes de serem vinculadas.</p>
+            <p class="lang-en">Deleting this Path <strong>does not delete</strong> the linked strands — they become free, keeping the shape they had at the moment of deletion. This is the opposite of the Braid's Path, on purpose: here, the strands already existed before being linked.</p>
+            <p class="lang-pt">Selecionando 2+ Paths Compostos e apertando <kbd>Ctrl</kbd>+<kbd>J</kbd>, dá pra juntar vários grupos num Path só — cada grupo original mantém sua própria linha dentro dele (do mesmo jeito que a Trança faz), sem precisar recalcular nem mover nenhuma mecha.</p>
+            <p class="lang-en">Selecting 2+ Composite Paths and pressing <kbd>Ctrl</kbd>+<kbd>J</kbd> joins several groups into a single Path — each original group keeps its own line inside it (the same way the Braid does), without recalculating or moving any strand.</p>
+
+            <h3 id="path-ferramentas" class="lang-pt">Path com as Ferramentas</h3>
+            <h3 id="path-ferramentas" class="lang-en">Path with the Tools</h3>
+            <p class="lang-pt">O Path interaje com pentear, mover, imã de raiz e ponta, excluir e crescer.</p>
+            <p class="lang-en">The Path interacts with Comb, Move, Root and Tip Magnet, Delete, and Grow.</p>
+
+            <h3 id="auto-atualizar" class="lang-pt">O "Auto-Atualizar" e sliders que parecem travados</h3>
+            <h3 id="auto-atualizar" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
+            <p class="lang-pt">A caixinha <strong>Auto-Atualizar</strong> controla se mudar um slider já reflete na viewport na hora. Desmarcada, os sliders continuam guardando o valor, mas só aplicam quando algo força uma atualização (trocar o Controle, ou entrar/sair do Edit Mode do Path). Se um slider "parou de responder", confira essa caixinha primeiro.</p>
+            <p class="lang-en">The <strong>Auto-Update</strong> checkbox controls whether changing a slider already reflects in the viewport right away. Unchecked, sliders still store the value, but only apply it when something forces an update (switching Control, or entering/exiting Edit Mode on the Path). If a slider "stopped responding", check this box first.</p>
+
+            <h3 id="seguranca" class="lang-pt">"Confirmar reconstrução do cabelo" (Segurança)</h3>
+            <h3 id="seguranca" class="lang-en">"Confirm hair rebuild" (Safety)</h3>
+            <p class="lang-pt">Na aba Modelar, dentro de <strong>Segurança</strong>, existe a caixinha <strong>Confirmar reconstrução do cabelo</strong>. Com ela marcada, o addon pede confirmação antes de sobrescrever uma mecha que foi editada manualmente (por exemplo, via Edit Mode nativo do Blender) — assim uma reconstrução automática não descarta sua edição manual sem avisar.</p>
+            <p class="lang-en">On the Model tab, inside <strong>Safety</strong>, there's the <strong>Confirm hair rebuild</strong> checkbox. With it checked, the addon asks for confirmation before overwriting a strand that was manually edited (for example, via Blender's native Edit Mode) — so an automatic rebuild doesn't silently discard your manual edit.</p>
+
+            <h3 id="estudio" class="lang-pt">A aba Estúdio é uma cena separada</h3>
+            <h3 id="estudio" class="lang-en">The Studio tab is a separate scene</h3>
+            <p class="lang-pt">Ao abrir o Estúdio de Textura, o addon cria (ou reaproveita) a cena <strong>"Hair Texture Studio"</strong> — luz e câmera próprias, isolada da sua cena principal.</p>
+            <p class="lang-en">When you open the Texture Studio, the addon creates (or reuses) the <strong>"Hair Texture Studio"</strong> scene — its own light and camera, isolated from your main scene.</p>
+
+
+
+
+            <div class="panel-gallery">
+              <figure>
+                <img src="assets/img/pt/aba-estudio-luz-pt.png" alt="Sub-aba Luz do Estúdio" class="lang-pt">
+                <img src="assets/img/en/aba-estudio-luz.png" alt="Studio's Light sub-tab" class="lang-en">
+                <figcaption class="lang-pt"><strong>Luz</strong> — preset de iluminação, posição, intensidade e reflexo.</figcaption>
+                <figcaption class="lang-en"><strong>Light</strong> — lighting preset, position, intensity, and reflection.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-estudio-cor-pt.png" alt="Sub-aba Cor do Estúdio" class="lang-pt">
+                <img src="assets/img/en/aba-estudio-cor.png" alt="Studio's Color sub-tab" class="lang-en">
+                <figcaption class="lang-pt"><strong>Cor</strong> — cor individual do slot, mistura de fios e transparência raiz/ponta.</figcaption>
+                <figcaption class="lang-en"><strong>Color</strong> — the slot's individual color, strand mixing, and root/tip transparency.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-estudio-estilo-pt.png" alt="Sub-aba Estilo do Estúdio" class="lang-pt">
+                <img src="assets/img/en/aba-estudio-estilo.png" alt="Studio's Style sub-tab" class="lang-en">
+                <figcaption class="lang-pt"><strong>Estilo</strong> — modo de geração (Cabelo/Pena/Puff) e os parâmetros da forma.</figcaption>
+                <figcaption class="lang-en"><strong>Style</strong> — generation mode (Hair/Feather/Puff) and shape parameters.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/img/pt/aba-estudio-mapas-pt.png" alt="Sub-aba Mapas do Estúdio" class="lang-pt">
+                <img src="assets/img/en/aba-estudio-mapas.png" alt="Studio's Maps sub-tab" class="lang-en">
+                <figcaption class="lang-pt"><strong>Mapas</strong> — resolução, motor de render, e os mapas simultâneos pra Bake.</figcaption>
+                <figcaption class="lang-en"><strong>Maps</strong> — resolution, render engine, and the simultaneous maps for Bake.</figcaption>
+              </figure>
+            </div>
+
+
+
+
+            <ul>
+              <li class="lang-pt">Use <strong>"Voltar para minha cena"</strong> pra sair — não feche a aba direto.</li>
+              <li class="lang-en">Use <strong>"Back to my scene"</strong> to exit — don't just close the tab directly.</li>
+              <li class="lang-pt">Clicar numa mecha diferente troca o <strong>slot ativo</strong> sozinho.</li>
+              <li class="lang-en">Clicking a different strand switches the <strong>active slot</strong> on its own.</li>
+              <li class="lang-pt">Editar os fios em Edit Mode marca aquele slot como editado à mão: a partir daí, entrar/sair do Estúdio preserva sua edição em vez de reconstruir do zero. Um reset manual limpa essa marca.</li>
+              <li class="lang-en">Editing the strands in Edit Mode marks that slot as manually edited: from then on, entering/exiting the Studio preserves your edit instead of rebuilding from scratch. A manual reset clears that mark.</li>
+            </ul>
+
+            <figure class="media-slot">
+                <img src="assets/img/en/aba-estudio-exemplo.gif" alt="Mostrando a cena dos cabelos na aba Estúdio." class="lang-pt">
+                <img src="assets/img/en/aba-estudio-exemplo.gif" alt="Showing the hair scene in the Studio tab." class="lang-en">
+                <figcaption class="lang-pt">Cena do Estúdio.</figcaption>
+                <figcaption class="lang-en">Studio scene.</figcaption>
+            </figure>
+
+            <h3 id="camera-so" class="lang-pt">Usando só a câmera do Estúdio, sem o cabelo/luz do addon</h3>
+            <h3 id="camera-so" class="lang-en">Using only the Studio camera, without the addon's hair/light</h3>
+            <p class="lang-pt">Às vezes você só quer a câmera já enquadrada do Estúdio pra fazer bake de outra coisa, com sua própria iluminação — sem o cabelo procedural nem as luzes do addon.</p>
+            <p class="lang-en">Sometimes you just want the Studio's already-framed camera to bake something else, with your own lighting — without the procedural hair or the addon's lights.</p>
+            <ol>
+              <li class="lang-pt">Entre na aba Estúdio normalmente (a cena "Hair Texture Studio" abre com a câmera já posicionada).</li>
+              <li class="lang-en">Open the Studio tab as usual (the "Hair Texture Studio" scene opens with the camera already positioned).</li>
+              <li class="lang-pt">No Outliner, desative o ícone de <strong>Render</strong> dos objetos <code>HairTextureStudio_Strands_*</code> e das luzes do addon ou remova o cabelo com <code>Remover Cabelo Deste Slot</code>.</li>
+              <li class="lang-en">In the Outliner, disable the <strong>Render</strong> icon on the <code>HairTextureStudio_Strands_*</code> objects and on the addon's lights, or remove the hair with <code>Remove Hair from This Slot</code>.</li>
+                <figure class="media-slot">
+                  <img src="assets/img/pt/bake-outliner-render-off-pt.png" alt="Outliner com o ícone de Render desativado nos objetos do addon" class="lang-pt">
+                  <img src="assets/img/en/bake-outliner-render-off.png" alt="Outliner with the Render icon disabled on the addon's objects" class="lang-en">
+                  <figcaption class="lang-pt">Ícones de Render desativados nos fios e luzes gerados pelo addon.</figcaption>
+                  <figcaption class="lang-en">Render icons disabled on the strands and lights generated by the addon.</figcaption>
+                </figure>
+              <li class="lang-pt">Traga seu próprio objeto (arraste de outra cena, ou use <strong>Adicionar Objeto Customizado</strong> pra aproveitar o encaixe automático no slot).</li>
+              <li class="lang-en">Bring in your own object (drag it from another scene, or use <strong>Add Custom Object</strong> to take advantage of the automatic fit into the slot).</li>
+              <li class="lang-pt">Adicione sua própria luz, do jeito que quiser iluminar.</li>
+              <li class="lang-en">Add your own light, however you want to light it.</li>
+              <li class="lang-pt">Faça o bake normalmente (Render Properties → Bake) — a câmera continua sendo a mesma que o addon posicionou.</li>
+              <li class="lang-en">Bake as usual (Render Properties → Bake) — the camera is still the same one the addon positioned.</li>
+            </ol>
+
+              <figure class="media-slot">
+                <img src="assets/img/en/bake-resultado.png" alt="Resultado do bake usando só a câmera do Estúdio" class="lang-pt">
+                <img src="assets/img/en/bake-resultado.png" alt="Bake result using only the Studio camera" class="lang-en">
+                <figcaption class="lang-pt">Mapas de textura do addon</figcaption>
+                <figcaption class="lang-en">The addon's texture maps</figcaption>
+              </figure>
+
+            <h3 id="editor-perfil" class="lang-pt">Editor de Perfil: dicas rápidas</h3>
+            <h3 id="editor-perfil" class="lang-en">Profile Editor: quick tips</h3>
+            <ul>
+              <li class="lang-pt"><strong>Espelhar X</strong> liga um espelho no eixo vertical — você edita só metade do contorno.</li>
+              <li class="lang-en"><strong>Mirror X</strong> turns on a mirror on the vertical axis — you only edit half of the outline.</li>
+              <li class="lang-pt">Pra esticar uma ponta (adicionar um ponto além do primeiro ou do último), clique um pouco afastado do ponto existente — clicar muito perto arrasta o ponto em vez de criar um novo.</li>
+              <li class="lang-en">To extend a tip (add a point past the first or the last one), click a little away from the existing point — clicking too close drags the point instead of creating a new one.</li>
+              <li class="lang-pt"><strong>Curva Suave</strong> troca linhas retas por uma curva suave — é só visual/de exportação, não muda os pontos de controle.</li>
+              <li class="lang-en"><strong>Smooth Curve</strong> swaps straight lines for a smooth curve — it's only visual/for export, it doesn't change the control points.</li>
+            </ul>
+
+              <figure class="media-slot">
+                <img src="assets/img/en/editor-perfil-demo.gif" alt="Editando um contorno espelhado no Editor de Perfil" class="lang-pt">
+                <img src="assets/img/en/editor-perfil-demo.gif" alt="Editing a mirrored outline in the Profile Editor" class="lang-en">
+                <figcaption class="lang-pt">Adicionando e movendo pontos com o Espelho X ativo no Editor de Perfil.</figcaption>
+                <figcaption class="lang-en">Adding and moving points with Mirror X active in the Profile Editor.</figcaption>
+              </figure>
+
+            <h3 id="editor-uv" class="lang-pt">Editor de UV: dicas rápidas</h3>
+            <h3 id="editor-uv" class="lang-en">UV Editor: quick tips</h3>
+            <p class="lang-pt">O Editor de UV é onde você organiza várias texturas de cabelo dentro de um atlas único — arraste e redimensione as células diretamente na viewport do editor, sem precisar sair pro UV Editor nativo do Blender.</p>
+            <p class="lang-en">The UV Editor is where you organize several hair textures inside a single atlas — drag and resize the cells directly in the editor's viewport, without having to leave for Blender's native UV Editor.</p>
+
+              <figure class="media-slot">
+                <img src="assets/img/en/editor-uv-demo.gif" alt="Organizando células no Editor de UV do addon" class="lang-pt">
+                <img src="assets/img/en/editor-uv-demo.gif" alt="Organizing cells in the addon's UV Editor" class="lang-en">
+                <figcaption class="lang-pt">Redimensionando e posicionando uma célula no Atlas de UV.</figcaption>
+                <figcaption class="lang-en">Resizing and positioning a cell in the UV Atlas.</figcaption>
+              </figure>
+
+            <h3 id="montar-material" class="lang-pt">Montar Material, na aba Mapas</h3>
+            <h3 id="montar-material" class="lang-en">Build Material, on the Maps tab</h3>
+            <p class="lang-pt">Na aba Mapas, a caixa <strong>"Montar Material"</strong> é o jeito rápido de montar o material final: em vez de conectar cada mapa de textura manualmente nos nós, você aponta pra uma <strong>pasta com as imagens</strong> (PNG ou JPG) e o addon identifica sozinho o que é cada uma pelo nome do arquivo, agrupa tudo como um "conjunto" e liga tudo automaticamente ao criar o material.</p>
+            <p class="lang-en">On the Maps tab, the <strong>"Build Material"</strong> box is the fast way to assemble the final material: instead of manually wiring each texture map into the nodes, you point it at a <strong>folder with the images</strong> (PNG or JPG) and the addon identifies each one on its own by the file name, groups everything into a "set", and wires it all automatically when creating the material.</p>
+            <p class="lang-pt">O addon reconhece o papel de cada imagem por palavras no nome do arquivo (não importa maiúscula/minúscula, nem se está com <code>_</code>, <code>-</code> ou espaço):</p>
+            <p class="lang-en">The addon recognizes each image's role from words in the file name (case doesn't matter, nor whether it's separated by <code>_</code>, <code>-</code> or a space):</p>
+            <table class="stack-mobile">
+              <thead class="lang-pt"><tr><th>Mapa</th><th>Pra que serve</th><th>Palavras reconhecidas no nome do arquivo</th></tr></thead>
+              <thead class="lang-en"><tr><th>Map</th><th>What it's for</th><th>Words recognized in the file name</th></tr></thead>
+              <tbody>
+                <tr class="lang-pt"><td data-label="Mapa">Color</td><td data-label="Pra que serve">Cor base do fio.</td><td data-label="Palavras"><code>color</code>, <code>colour</code>, <code>albedo</code>, <code>diffuse</code>, <code>basecolor</code>, <code>diff</code>, <code>col</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Color</td><td data-label="What it's for">Base color of the strand.</td><td data-label="Words"><code>color</code>, <code>colour</code>, <code>albedo</code>, <code>diffuse</code>, <code>basecolor</code>, <code>diff</code>, <code>col</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Normal</td><td data-label="Pra que serve">Detalhe de relevo por card, dá volume à silhueta plana.</td><td data-label="Palavras"><code>normal</code>, <code>nrm</code>, <code>nmap</code>, <code>nor</code>, <code>norm</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Normal</td><td data-label="What it's for">Per-card surface detail, gives volume to the flat silhouette.</td><td data-label="Words"><code>normal</code>, <code>nrm</code>, <code>nmap</code>, <code>nor</code>, <code>norm</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">AO</td><td data-label="Pra que serve">Sombreamento de contato onde os fios se sobrepõem.</td><td data-label="Palavras"><code>ao</code>, <code>occlusion</code>, <code>ambientocclusion</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">AO</td><td data-label="What it's for">Contact shading where strands overlap.</td><td data-label="Words"><code>ao</code>, <code>occlusion</code>, <code>ambientocclusion</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Alpha</td><td data-label="Pra que serve">Recorte da silhueta do card — fora do fio fica transparente.</td><td data-label="Palavras"><code>alpha</code>, <code>opacity</code>, <code>transparent</code>, <code>mask</code>, <code>cutout</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Alpha</td><td data-label="What it's for">Cuts out the card's silhouette — outside the strand becomes transparent.</td><td data-label="Words"><code>alpha</code>, <code>opacity</code>, <code>transparent</code>, <code>mask</code>, <code>cutout</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Flow</td><td data-label="Pra que serve">Direção do fio — usada pro brilho especular acompanhar o sentido do cabelo.</td><td data-label="Palavras"><code>flow</code>, <code>flowmap</code>, <code>direction</code>, <code>dir</code>, <code>anisotropy</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Flow</td><td data-label="What it's for">Strand direction — used so the specular highlight follows the hair's direction.</td><td data-label="Words"><code>flow</code>, <code>flowmap</code>, <code>direction</code>, <code>dir</code>, <code>anisotropy</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Height</td><td data-label="Pra que serve">Relevo/deslocamento, pra efeitos de parallax ou displacement.</td><td data-label="Palavras"><code>height</code>, <code>displacement</code>, <code>disp</code>, <code>depth</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Height</td><td data-label="What it's for">Relief/displacement, for parallax or displacement effects.</td><td data-label="Words"><code>height</code>, <code>displacement</code>, <code>disp</code>, <code>depth</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Root/Tip</td><td data-label="Pra que serve">Gradiente preto→branco da raiz à ponta, útil pra variar cor/opacidade ao longo do fio.</td><td data-label="Palavras"><code>roottip</code>, <code>root_tip</code>, <code>gradient</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Root/Tip</td><td data-label="What it's for">Black-to-white gradient from root to tip, useful for varying color/opacity along the strand.</td><td data-label="Words"><code>roottip</code>, <code>root_tip</code>, <code>gradient</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Transmission</td><td data-label="Pra que serve">Quanto de luz atravessa o fio (efeito translúcido).</td><td data-label="Palavras"><code>transmission</code>, <code>translucency</code>, <code>sss</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Transmission</td><td data-label="What it's for">How much light passes through the strand (translucent effect).</td><td data-label="Words"><code>transmission</code>, <code>translucency</code>, <code>sss</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Roughness</td><td data-label="Pra que serve">Quão fosco ou brilhante o fio aparece.</td><td data-label="Palavras"><code>roughness</code>, <code>rough</code>, <code>rgh</code>, <code>gloss</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Roughness</td><td data-label="What it's for">How matte or shiny the strand appears.</td><td data-label="Words"><code>roughness</code>, <code>rough</code>, <code>rgh</code>, <code>gloss</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Specular</td><td data-label="Pra que serve">Intensidade do brilho especular.</td><td data-label="Palavras"><code>specular</code>, <code>spec</code>, <code>spc</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Specular</td><td data-label="What it's for">Specular highlight intensity.</td><td data-label="Words"><code>specular</code>, <code>spec</code>, <code>spc</code></td></tr>
+              </tbody>
+            </table>
+            <div class="callout">
+              <p class="lang-pt">Se um arquivo não tiver nenhuma dessas palavras no nome, ele é simplesmente ignorado na importação (o addon avisa quando nada foi reconhecido na pasta) — vale renomear antes de importar se algum mapa seu usa um nome fora do padrão.</p>
+              <p class="lang-en">If a file doesn't have any of these words in its name, it's simply skipped on import (the addon warns you when nothing was recognized in the folder) — it's worth renaming before importing if one of your maps uses a non-standard name.</p>
+            </div>
+
+            <h3 id="otimizar-jogo" class="lang-pt">Otimizar: "Preparar para Jogo" (bake completo)</h3>
+            <h3 id="otimizar-jogo" class="lang-en">Optimize: "Prepare for Game" (full bake)</h3>
+            <p class="lang-pt">Além de só reduzir a curva pra uma mesh leve, a aba Otimizar tem um segundo modo, mais completo: <strong>Prepare for Game</strong>. Ele automatiza os passos de deixar uma mecha pronta pra exportar de vez, tudo num clique:</p>
+            <p class="lang-en">Besides just reducing the curve to a light mesh, the Optimize tab has a second, more complete mode: <strong>Prepare for Game</strong>. It automates the steps of getting a strand fully export-ready, all in one click:</p>
+
+            <figure class="media-slot">
+              <img src="assets/img/pt/aba-otimizar-pt.png" alt="Painel Preparar para jogo, na aba Otimizar" class="lang-pt">
+              <img src="assets/img/en/aba-otimizar.png" alt="Prepare for Game panel, on the Optimize tab" class="lang-en">
+              <figcaption class="lang-pt">O painel completo da aba Otimizar, com o Reduzir na Origem em cima e o Preparar para jogo embaixo.</figcaption>
+              <figcaption class="lang-en">The full Optimize tab panel, with Reduce at Source on top and Prepare for Game below.</figcaption>
+            </figure>
+
+            <ul>
+              <li class="lang-pt"><strong>Duplicar objetot</strong> — trabalha numa cópia, sem mexer no original.</li>
+              <li class="lang-en"><strong>Duplicate Object</strong> — works on a copy, without touching the original.</li>
+              <li class="lang-pt"><strong>Converter cópia para Mesh</strong> — transforma a cópia em malha de verdade.</li>
+              <li class="lang-en"><strong>Convert Copy to Mesh</strong> — turns the copy into a real mesh.</li>
+              <li class="lang-pt"><strong>Criar Material</strong> — monta um material novo pra essa cópia (ou reaproveita um existente, com "Reutilizar material existente").</li>
+              <li class="lang-en"><strong>Create Material</strong> — builds a new material for that copy (or reuses an existing one, with "Reuse Existing Material").</li>
+              <li class="lang-pt"><strong>Assar Material</strong> — assa o resultado final na resolução escolhida.</li>
+              <li class="lang-en"><strong>Bake Material</strong> — bakes the final result at the chosen resolution.</li>
+            </ul>
+            <p class="lang-pt">O "Material" desse formulário decide o que exatamente é assado — por exemplo, <strong>Material Final</strong> assa só a Base Color final, sem luz, enquanto outras opções incluem a iluminação da cena no resultado.</p>
+            <p class="lang-en">The "Material" dropdown in this form decides exactly what gets baked — for example, <strong>Final Material</strong> bakes just the final Base Color, without lighting, while other options include the scene's lighting in the result.</p>
+          </section>
+
+          <svg class="strand" viewBox="0 0 640 22" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 11 C 80 -4, 160 26, 240 11 S 400 -4, 480 11 S 600 22, 640 11" />
+          </svg>
+
+          <section id="limitacoes">
+            <h2 class="lang-pt">Limitações conhecidas</h2>
+            <h2 class="lang-en">Known limitations</h2>
+            <p class="section-kicker lang-pt">Coisas que o addon ainda não faz, ou faz de um jeito diferente do que você imaginaria — melhor saber antes de esbarrar sozinho. Esta lista tende a crescer.</p>
+            <p class="section-kicker lang-en">Things the addon doesn't do yet, or does differently than you'd expect — better to know before running into them on your own. This list tends to grow.</p>
+            <ul>
+              <li class="lang-pt">Ao instalar no <strong>Blender 4.2.x</strong>, pode aparecer um erro em vermelho no console — é um bug conhecido do próprio Blender (4.2.7–4.3), não do addon. O addon já foi instalado e ativado com sucesso antes disso; pode ignorar o erro.</li>
+              <li class="lang-en">When installing on <strong>Blender 4.2.x</strong>, a red error may appear in the console — it's a known bug in Blender itself (4.2.7–4.3), not the addon. The addon has already been successfully installed and enabled before that; you can ignore the error.</li>
+              <li class="lang-pt">Trança / Corda: Se você alterar o perfil de outro elemento e usar uma ferramenta, a Trança/Corda pode temporariamente reverter para o perfil anterior ao reentrar na ferramenta. Como resolver: Basta selecionar a Trança/Corda e usar qualquer ferramenta, ou simplesmente entrar e sair do Edit Mode para que o perfil correto seja restaurado.</li>
+              <li class="lang-en">Braid / Rope: If you change the profile of another element and use a tool, the Braid/Rope may temporarily revert to the previous profile when re-entering the tool. How to fix it: Simply select the Braid/Rope and use any tool, or just enter and exit Edit Mode so the correct profile is restored.</li>
+              <li class="lang-pt">As ferramentas do addon funcionam por conta própria, de um jeito diferente das ferramentas nativas do Blender (são pincéis modais com atalhos próprios) — não espere o mesmo comportamento de sculpt/paint padrão do Blender.</li>
+              <li class="lang-en">The addon's tools work on their own, differently from Blender's native tools (they're modal brushes with their own shortcuts) — don't expect the same behavior as Blender's standard sculpt/paint.</li>
+              <li class="lang-pt"><strong>Gerar Textura a partir de imagem</strong> não tem preview ao vivo — você ajusta os parâmetros, gera, e só então vê o resultado.</li>
+              <li class="lang-en"><strong>Generate Texture from image</strong> has no live preview — you set the parameters, generate, and only then see the result.</li>
+              <li class="lang-pt">O modo <strong>Editor Preciso</strong>, dentro de Fita de Cabelo (Ribbon), na aba Criar, é experimental — funciona, mas ainda está em desenvolvimento.</li>
+              <li class="lang-en">The <strong>Precise Editor</strong> mode, inside Hair Ribbon, on the Create tab, is experimental — it works, but it's still under development.</li>
+              <li class="lang-pt">Mover o <strong>Path</strong> não atualiza a trança/mecha em tempo real — a reconstrução só dispara em momentos específicos (sair do Edit Mode do Path, trocar o Controle, ou usar um botão de aplicar). Não espere ver a geometria acompanhando o movimento enquanto você arrasta.</li>
+              <li class="lang-en">Moving the <strong>Path</strong> doesn't update the braid/strand in real time — the rebuild only fires at specific moments (exiting the Path's Edit Mode, switching Control, or using an apply button). Don't expect to see the geometry follow the movement while you drag.</li>
+              <li class="lang-pt">O botão <strong>Salvar Configuração do Cabelo</strong>, no Estúdio, salva só os 5 slots principais — não é possível salvar a cor individual de cada mecha separadamente nesse mesmo botão.</li>
+              <li class="lang-en">The <strong>Save Hair Configuration</strong> button, in the Studio, only saves the 5 main slots — it's not possible to save each strand's individual color separately with that same button.</li>
+              <li class="lang-pt">No Editor de Perfil, quando "Espelhar X" estiver ligado, adicionar pontos exatamente onde você quer pode ser mais difícil. Se sentir que isso está atrapalhando, é recomendado arrastar os pontos já existentes em vez de tentar adicionar novos.</li>
+              <li class="lang-en">In the Profile Editor, when Mirror X is on, adding points exactly where you want can be harder — it's recommended to drag the points instead if you feel that this is getting in the way too much.</li>
+              <li class="lang-pt">No Editor de Perfil, suavizar um perfil <strong>Personalizado</strong> é um botão que você aciona (Curva Suave: ON/OFF) — diferente dos perfis padrão (Redondo, Fita, etc.), que têm uma caixinha de verdade e atualizam ao vivo.</li>
+              <li class="lang-en">In the Profile Editor, smoothing a <strong>Custom</strong> profile is a button you press (Smooth Curve: ON/OFF) — unlike the default profiles (Round, Ribbon, etc.), which have a real checkbox and update live.</li>
+              <li class="lang-pt">Trocar o Controle de uma Trança/Corda pra <strong>Geometria</strong> e editar a malha diretamente quebra o vínculo com os sliders — a partir daí, os sliders da Trança não vão mais controlar essa geometria.</li>
+              <li class="lang-en">Switching a Braid/Rope's Control to <strong>Geometry</strong> and editing the mesh directly breaks the link with the sliders — from then on, the Braid's sliders will no longer control that geometry.</li>
+              <li class="lang-pt">A torção (rotação/tilt) pode acumular sem querer em edições sucessivas — use com cautela, principalmente em fluxos com muita repetição.</li>
+              <li class="lang-en">Twist (rotation/tilt) can accumulate unintentionally over successive edits — use with caution, especially in workflows with a lot of repetition.</li>
+              <li class="lang-pt">A resolução máxima pra gerar arquivos de textura é <strong>4K</strong>.</li>
+              <li class="lang-en">The maximum resolution for generating texture files is <strong>4K</strong>.</li>
+              <li class="lang-pt">O Bake do Estúdio sempre renderiza em <strong>Cycles</strong>, independente do motor configurado na cena — para cabelo (muita transparência sobreposta), o Cycles é mais rápido e não trava a interface durante o processo, ao contrário do EEVEE.</li>
+              <li class="lang-en">Studio Bake always renders in <strong>Cycles</strong>, regardless of the scene's configured engine — for hair (lots of overlapping transparency), Cycles is faster and doesn't freeze the interface during the process, unlike EEVEE.</li>
+              <li class="lang-pt"><strong>Vincular ao Path Composto</strong> só funciona com curvas — não é possível vincular objetos de malha (mesh) diretamente.</li>
+              <li class="lang-en"><strong>Link to Composite Path</strong> only works with curves — it's not possible to link mesh objects directly.</li>
+            </ul>
+          </section>
+
+          <svg class="strand" viewBox="0 0 640 22" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 11 C 80 -4, 160 26, 240 11 S 400 -4, 480 11 S 600 22, 640 11" />
+          </svg>
+
+          <section id="faq">
+            <h2 class="lang-pt">Perguntas frequentes</h2>
+            <h2 class="lang-en">Frequently asked questions</h2>
+            <dl class="faq-list">
+              <dt class="lang-pt">Meu slider não está funcionando.</dt>
+              <dt class="lang-en">My slider isn't working.</dt>
+              <dd class="lang-pt">Confira a caixinha <strong>Auto-Atualizar</strong> — se estiver desmarcada, o valor é guardado mas só aplica quando algo força uma atualização.</dd>
+              <dd class="lang-en">Check the <strong>Auto-Update</strong> checkbox — if it's unchecked, the value is stored but only applies when something forces an update.</dd>
+
+              <dt class="lang-pt">Mexi na trança e ela voltou pro formato anterior.</dt>
+              <dt class="lang-en">I edited the braid and it went back to its previous shape.</dt>
+              <dd class="lang-pt">Você provavelmente está no Controle <strong>Path</strong> — edite o Path, não a malha da trança diretamente.</dd>
+              <dd class="lang-en">You're probably on Path Control — edit the Path, not the braid's mesh directly.</dd>
+
+              <dt class="lang-pt">Apaguei o Path e perdi a Trança/Corda.</dt>
+              <dt class="lang-en">I deleted the Path and lost the Braid/Rope.</dt>
+              <dd class="lang-pt">É o comportamento esperado — Path e Trança/Corda são uma coisa só. Se quiser manter a forma sem o vínculo, troque o Controle pra Geometria antes de excluir.</dd>
+              <dd class="lang-en">That's the expected behavior — the Path and the Braid/Rope are a single thing. If you want to keep the shape without the link, switch Control to Geometry before deleting.</dd>
+
+              <dt class="lang-pt">Como excluir o Path sem perder a Trança/Corda?</dt>
+              <dt class="lang-en">How do I delete the Path without losing the Braid/Rope?</dt>
+              <dd class="lang-pt">Exclua o path dentro de edit mode.</dd>
+              <dd class="lang-en">Delete the path from inside Edit Mode.</dd>
+
+              <dt class="lang-pt">Meu mapa não apareceu no Montar Material.</dt>
+              <dt class="lang-en">My map didn't show up in Build Material.</dt>
+              <dd class="lang-pt">Confira se o nome do arquivo tem uma das palavras reconhecidas (veja a tabela em <a href="#montar-material">Montar Material</a>) — sem isso, o arquivo é ignorado na importação.</dd>
+              <dd class="lang-en">Check whether the file name has one of the recognized words (see the table in <a href="#montar-material">Build Material</a>) — without that, the file is ignored on import.</dd>
+
+              <dt class="lang-pt">Posso editar a Trança/Corda manualmente?</dt>
+              <dt class="lang-en">Can I edit the Braid/Rope manually?</dt>
+              <dd class="lang-pt">Sim — troque o Controle pra <strong>Geometria</strong>. Isso desliga o vínculo com o Path (e com os sliders), deixando a malha livre pra edição direta.</dd>
+              <dd class="lang-en">Yes — switch Control to <strong>Geometry</strong>. This turns off the link with the Path (and with the sliders), leaving the mesh free for direct editing.</dd>
+            </dl>
+          </section>
+
+          <svg class="strand" viewBox="0 0 640 22" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 11 C 80 -4, 160 26, 240 11 S 400 -4, 480 11 S 600 22, 640 11" />
+          </svg>
+
+          <section id="atalhos">
+            <h2 class="lang-pt">Atalhos de teclado</h2>
+            <h2 class="lang-en">Keyboard shortcuts</h2>
+
+            <h3 class="lang-pt">Dentro de qualquer pincel</h3>
+            <h3 class="lang-en">Inside any brush</h3>
+            <p class="lang-pt">Funcionam enquanto o pincel está ativo — aperte uma vez pra ligar o modo, mova o mouse e clique (ou aperte de novo) pra confirmar.</p>
+            <p class="lang-en">These work while the brush is active — press once to turn the mode on, move the mouse and click (or press again) to confirm.</p>
+            <table>
+              <thead class="lang-pt"><tr><th>Tecla</th><th>O que faz</th></tr></thead>
+              <thead class="lang-en"><tr><th>Key</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr class="lang-pt"><td><kbd>F</kbd></td><td>Liga/desliga o ajuste do <strong>raio</strong> do pincel.</td></tr>
+                <tr class="lang-en"><td><kbd>F</kbd></td><td>Toggles the brush's <strong>radius</strong> adjustment.</td></tr>
+                <tr class="lang-pt"><td><kbd>S</kbd></td><td>Liga/desliga o ajuste da <strong>força/intensidade</strong>. Não existe em pincéis sem essa noção, como Excluir Cabelo e Tesoura.</td></tr>
+                <tr class="lang-en"><td><kbd>S</kbd></td><td>Toggles the <strong>strength/intensity</strong> adjustment. Not present on brushes without that notion, like Delete Hair and Scissors.</td></tr>
+                <tr class="lang-pt"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Desfaz a última pincelada — funciona mesmo antes de soltar a ferramenta.</td></tr>
+                <tr class="lang-en"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Undoes the last stroke — works even before releasing the tool.</td></tr>
+                <tr class="lang-pt"><td><kbd>Esc</kbd></td><td>Cancela e sai do pincel.</td></tr>
+                <tr class="lang-en"><td><kbd>Esc</kbd></td><td>Cancels and exits the brush.</td></tr>
+              </tbody>
+            </table>
+
+            <h3 class="lang-pt">Só no pincel Criar (Clique)</h3>
+            <h3 class="lang-en">Only on the Create (Click) brush</h3>
+            <table>
+              <tbody>
+                <tr class="lang-pt"><td><kbd>R</kbd></td><td>Liga/desliga o ajuste de <strong>rotação</strong> da mecha sendo criada.</td></tr>
+                <tr class="lang-en"><td><kbd>R</kbd></td><td>Toggles the <strong>rotation</strong> adjustment of the strand being created.</td></tr>
+              </tbody>
+            </table>
+
+            <h3 class="lang-pt">Editor de Perfil</h3>
+            <h3 class="lang-en">Profile Editor</h3>
+            <table>
+              <tbody>
+                <tr class="lang-pt"><td>Clique numa linha</td><td>Adiciona/insere um ponto ali.</td></tr>
+                <tr class="lang-en"><td>Click on a line</td><td>Adds/inserts a point there.</td></tr>
+                <tr class="lang-pt"><td>Arrastar um ponto</td><td>Move o ponto.</td></tr>
+                <tr class="lang-en"><td>Drag a point</td><td>Moves the point.</td></tr>
+                <tr class="lang-pt"><td><kbd>Ctrl</kbd>+clique ou <kbd>X</kbd></td><td>Remove o ponto.</td></tr>
+                <tr class="lang-en"><td><kbd>Ctrl</kbd>+click or <kbd>X</kbd></td><td>Removes the point.</td></tr>
+                <tr class="lang-pt"><td><kbd>C</kbd></td><td>Abre ou fecha o contorno (cíclico).</td></tr>
+                <tr class="lang-en"><td><kbd>C</kbd></td><td>Opens or closes the outline (cyclic).</td></tr>
+                <tr class="lang-pt"><td><kbd>Ctrl</kbd>+clique em espaço vazio</td><td>Adiciona uma nova linha/spline.</td></tr>
+                <tr class="lang-en"><td><kbd>Ctrl</kbd>+click on empty space</td><td>Adds a new line/spline.</td></tr>
+                <tr class="lang-pt"><td><kbd>Tab</kbd></td><td>Troca qual linha está ativa.</td></tr>
+                <tr class="lang-en"><td><kbd>Tab</kbd></td><td>Switches which line is active.</td></tr>
+                <tr class="lang-pt"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Desfaz a última alteração no editor.</td></tr>
+                <tr class="lang-en"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Undoes the last change in the editor.</td></tr>
+              </tbody>
+            </table>
+
+            <h3 class="lang-pt">Editor Preciso (Fita de Cabelo / Ribbon)</h3>
+            <h3 class="lang-en">Precise Editor (Hair Ribbon)</h3>
+            <p class="lang-pt">Botão <strong>Iniciar</strong> desenha linhas novas; botão <strong>Editar</strong> reabre as linhas já desenhadas pra ajustar (use-o de novo depois de mudar algum parâmetro, como Mechas na Fita, pra ver a mudança refletida).</p>
+            <p class="lang-en"><strong>Start</strong> draws new lines; <strong>Edit</strong> reopens the lines already drawn to adjust them (use it again after changing a parameter, like Strands in Ribbon, to see the change reflected).</p>
+            <table>
+              <tbody>
+                <tr class="lang-pt"><td>Clique</td><td>Adiciona um ponto da Raiz (por padrão 4 pontos, a linha avança sozinha depois disso).</td></tr>
+                <tr class="lang-en"><td>Click</td><td>Adds a Root point (4 by default, the line advances on its own after that).</td></tr>
+                <tr class="lang-pt"><td><kbd>Enter</kbd> antes do 4º clique</td><td>Confirma a linha com só 2 ou 3 pontos.</td></tr>
+                <tr class="lang-en"><td><kbd>Enter</kbd> before the 4th click</td><td>Confirms the line with only 2 or 3 points.</td></tr>
+                <tr class="lang-pt"><td><kbd>A</kbd></td><td>Adiciona um ponto.</td></tr>
+                <tr class="lang-en"><td><kbd>A</kbd></td><td>Adds a point.</td></tr>
+                <tr class="lang-pt"><td><kbd>C</kbd></td><td>Corta a fita.</td></tr>
+                <tr class="lang-en"><td><kbd>C</kbd></td><td>Cuts the ribbon.</td></tr>
+                <tr class="lang-pt"><td><kbd>X</kbd> / <kbd>Del</kbd></td><td>Remove um ponto.</td></tr>
+                <tr class="lang-en"><td><kbd>X</kbd> / <kbd>Del</kbd></td><td>Removes a point.</td></tr>
+                <tr class="lang-pt"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Desfaz.</td></tr>
+                <tr class="lang-en"><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Undoes.</td></tr>
+                <tr class="lang-pt"><td><kbd>Enter</kbd> / <kbd>Esc</kbd> / botão direito</td><td>Confirma e sai do editor.</td></tr>
+                <tr class="lang-en"><td><kbd>Enter</kbd> / <kbd>Esc</kbd> / right-click</td><td>Confirms and exits the editor.</td></tr>
+              </tbody>
+            </table>
+
+            <h3 class="lang-pt">Duplicar e juntar (Trança/Corda e Path Composto)</h3>
+            <h3 class="lang-en">Duplicate and join (Braid/Rope and Composite Path)</h3>
+            <p class="lang-pt">Substituem os atalhos nativos do Blender <em>só quando faz sentido</em> — em qualquer outro objeto, o atalho continua sendo o padrão.</p>
+            <p class="lang-en">These replace Blender's native shortcuts <em>only when it makes sense</em> — on any other object, the shortcut stays the default one.</p>
+            <table class="stack-mobile">
+              <thead class="lang-pt"><tr><th>Tecla</th><th>Objeto ativo</th><th>O que faz</th></tr></thead>
+              <thead class="lang-en"><tr><th>Key</th><th>Active object</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Objeto ativo">Path de Trança/Corda</td><td data-label="O que faz">Duplica a Trança/Corda inteira (Path + mechas).</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Active object">Braid/Rope Path</td><td data-label="What it does">Duplicates the entire Braid/Rope (Path + strands).</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Objeto ativo">Path Composto (Grupo)</td><td data-label="O que faz">Duplica o Grupo inteiro (Path + mechas vinculadas).</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Active object">Composite Path (Group)</td><td data-label="What it does">Duplicates the entire Group (Path + linked strands).</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Objeto ativo">2+ Paths de Trança/Corda selecionados</td><td data-label="O que faz">Junta as tranças num grupo só.</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Active object">2+ Braid/Rope Paths selected</td><td data-label="What it does">Joins the braids into a single group.</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Objeto ativo">2+ Paths Compostos (Grupo)</td><td data-label="O que faz">Junta os Paths num grupo só, cada um mantendo sua própria linha.</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Active object">2+ Composite Path</td><td data-label="What it does">Joins the paths into a single group.</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <footer>
+            <span class="lang-pt">Simple Hair Cards v1.0 · Documentação por Esaque Silva</span>
+            <span class="lang-en">Simple Hair Cards v1.0 · Documentation by Esaque Silva</span>
+          </footer>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/lang-switch.js" defer></script>
+
+</body>
+</html>
