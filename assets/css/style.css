@@ -29,12 +29,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  a{ color: var(--yellow); text-decoration: none; }
-  a:hover{ text-decoration: underline; }
+  a{ color: var(--yellow); text-decoration: underline; text-decoration-color: rgba(255,194,41,0.45); text-underline-offset: 3px; }
+  a:hover{ text-decoration-color: currentColor; }
   a:focus-visible, button:focus-visible{
     outline: 2px solid var(--yellow);
     outline-offset: 2px;
   }
+
+  nav.toc a{ text-decoration: none; }
 
  /* ---------- seção de abertura, fundo verde-azulado (teal) ---------- */
   .hero-outer{
