@@ -541,10 +541,10 @@
             <ul>
               <li class="lang-pt"><strong>Duplicar objeto</strong> — trabalha numa cópia, sem mexer no original.</li>
               <li class="lang-en"><strong>Duplicate Object</strong> — works on a copy, without touching the original.</li>
-              <li class="lang-pt"><strong>Converter cópia para Mesh</strong> — transforma a cópia em malha de verdade.</li>
-              <li class="lang-en"><strong>Convert Copy to Mesh</strong> — turns the copy into a real mesh.</li>
-              <li class="lang-pt"><strong>Criar Material</strong> — monta um material novo pra essa cópia (ou reaproveita um existente, com "Reutilizar material existente").</li>
-              <li class="lang-en"><strong>Create Material</strong> — builds a new material for that copy (or reuses an existing one, with "Reuse Existing Material").</li>
+              <li class="lang-pt"><strong>Converter para Mesh</strong> — transforma o objeto (a cópia, ou o original se "Duplicar objeto" estiver desmarcado) em malha de verdade. <strong>Obrigatório</strong> se o objeto começar como Curva — o Bake do Blender só funciona em Mesh com UV, então desmarcar essa opção com "Assar Material" ativo cancela o processo com um aviso de erro.</li>
+              <li class="lang-en"><strong>Convert to Mesh</strong> — turns the object (the copy, or the original if "Duplicate Object" is unchecked) into a real mesh. <strong>Required</strong> if the object starts as a Curve — Blender's baking only works on Mesh with UV, so unchecking this while "Bake Material" is on cancels the process with an error.</li>
+              <li class="lang-pt"><strong>Criar Material</strong> — monta um material novo pra esse objeto. Marque <strong>"Reutilizar material existente"</strong> pra usar um material já criado antes, em vez de gerar um novo toda vez.</li>
+              <li class="lang-en"><strong>Create Material</strong> — builds a new material for that object. Check <strong>"Reuse Existing Material"</strong> to use a material already created before, instead of generating a new one every time.</li>
               <li class="lang-pt"><strong>Assar Material</strong> — assa o resultado final na resolução escolhida.</li>
               <li class="lang-en"><strong>Bake Material</strong> — bakes the final result at the chosen resolution.</li>
             </ul>
