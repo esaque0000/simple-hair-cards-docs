@@ -43,35 +43,35 @@
             <p class="group-label lang-pt">Criar e modelar</p>
             <p class="group-label lang-en">Create and Model</p>
             <a href="#inverso" class="lang-pt">O inverso de cada pincel</a>
-            <a href="#inverso" class="lang-en">Each brush's "invert"</a>
+            <a href="#invert" class="lang-en">Each brush's "invert"</a>
             <a href="#nao-obvias" class="lang-pt">Coisas que não são óbvias</a>
             <a href="#nao-obvias" class="lang-en">Things that aren't obvious</a>
             <a href="#path" class="lang-pt">O Path da Trança/Corda</a>
-            <a href="#path" class="lang-en">The Braid/Rope Path</a>
+            <a href="#braid-path" class="lang-en">The Braid/Rope Path</a>
             <a href="#controle" class="lang-pt">Path vs. Geometria</a>
-            <a href="#controle" class="lang-en">Path vs. Geometry</a>
+            <a href="#control" class="lang-en">Path vs. Geometry</a>
             <a href="#composto" class="lang-pt">Path Vinculado (Composto)</a>
-            <a href="#composto" class="lang-en">Linked (Composite) Path</a>
+            <a href="#composite" class="lang-en">Linked (Composite) Path</a>
             <a href="#path-ferramentas" class="lang-pt">Path com as Ferramentas</a>
-            <a href="#path-ferramentas" class="lang-en">Path with the Tools</a>
+            <a href="#path-tools" class="lang-en">Path with the Tools</a>
             <a href="#seguranca" class="lang-pt">Confirmar reconstrução (Segurança)</a>
-            <a href="#seguranca" class="lang-en">Confirm rebuild (Safety)</a>
+            <a href="#safety" class="lang-en">Confirm rebuild (Safety)</a>
             <p class="group-label lang-pt">Texturizar</p>
             <p class="group-label lang-en">Texturize</p>
             <a href="#auto-atualizar" class="lang-pt">Auto-Atualizar</a>
-            <a href="#auto-atualizar" class="lang-en">Auto-Update</a>
+            <a href="#auto-update" class="lang-en">Auto-Update</a>
             <a href="#estudio" class="lang-pt">A cena do Estúdio</a>
-            <a href="#estudio" class="lang-en">The Studio scene</a>
+            <a href="#studio" class="lang-en">The Studio scene</a>
             <a href="#camera-so" class="lang-pt">Usando só a câmera do Estúdio</a>
-            <a href="#camera-so" class="lang-en">Using only the Studio camera</a>
+            <a href="#camera-only" class="lang-en">Using only the Studio camera</a>
             <a href="#editor-perfil" class="lang-pt">Editor de Perfil</a>
-            <a href="#editor-perfil" class="lang-en">Profile Editor</a>
+            <a href="#profile-editor" class="lang-en">Profile Editor</a>
             <a href="#editor-uv" class="lang-pt">Editor de UV</a>
-            <a href="#editor-uv" class="lang-en">UV Editor</a>
+            <a href="#uv-editor" class="lang-en">UV Editor</a>
             <a href="#montar-material" class="lang-pt">Montar Material (aba Mapas)</a>
-            <a href="#montar-material" class="lang-en">Build Material (Maps tab)</a>
+            <a href="#build-material" class="lang-en">Build Material (Maps tab)</a>
             <a href="#otimizar-jogo" class="lang-pt">Otimizar: Preparar para jogo</a>
-            <a href="#otimizar-jogo" class="lang-en">Optimize: Prepare for Game</a>
+            <a href="#optimize-game" class="lang-en">Optimize: Prepare for Game</a>
             <p class="group-label lang-pt">Referência</p>
             <p class="group-label lang-en">Reference</p>
             <a href="#faq" class="lang-pt">Perguntas frequentes</a>
@@ -275,7 +275,7 @@
                 <figcaption class="lang-en">The main brushes in action: Create (Click), Comb and Root Magnet.</figcaption>
               </figure>
             <h3 id="inverso" class="lang-pt">O "inverso" de cada pincel</h3>
-            <h3 id="inverso" class="lang-en">Each brush's "invert"</h3>
+            <h3 id="invert" class="lang-en">Each brush's "invert"</h3>
             <p class="lang-pt">Seis pincéis têm um comportamento oposto ao padrão, guardado numa caixinha própria no painel — e você pode ativar esse oposto <strong>na hora</strong>, sem precisar marcar a caixinha, só segurando <kbd>Ctrl</kbd> enquanto pinta (soltar o Ctrl volta ao normal).</p>
             <p class="lang-en">Six brushes have an opposite behavior to their default, stored in their own checkbox on the panel — and you can turn that opposite on <strong>on the spot</strong>, without needing to check the box, just by holding <kbd>Ctrl</kbd> while painting (releasing Ctrl goes back to normal).</p>
             <table class="stack-mobile">
@@ -316,7 +316,7 @@
             <p class="section-kicker lang-en">These aren't bugs — they're design decisions that make more sense once you understand them.</p>
 
             <h3 id="path" class="lang-pt">O Path da Trança/Corda</h3>
-            <h3 id="path" class="lang-en">The Braid/Rope Path</h3>
+            <h3 id="braid-path" class="lang-en">The Braid/Rope Path</h3>
             <p class="lang-pt">Toda Trança/Corda gera <strong>dois objetos</strong>: a trança em si (a malha trançada que você renderiza) e o <strong>Path</strong> — uma curva simples que funciona como o esqueleto dela.</p>
             <p class="lang-en">Every Braid/Rope creates <strong>two objects</strong>: the braid itself (the braided mesh you render) and the <strong>Path</strong> — a simple curve that acts as its skeleton.</p>
             <p class="lang-pt">Você edita o Path, não a trança. A malha fica travada pra seleção de propósito, pra você não mexer na geometria errada por engano.</p>
@@ -335,7 +335,7 @@
             </div>
 
             <h3 id="controle" class="lang-pt">Controle: Path vs. Geometria</h3>
-            <h3 id="controle" class="lang-en">Control: Path vs. Geometry</h3>
+            <h3 id="control" class="lang-en">Control: Path vs. Geometry</h3>
             <p class="lang-pt">Toda Trança/Corda (e todo Path Composto) tem uma opção de <strong>Controle</strong>:</p>
             <p class="lang-en">Every Braid/Rope (and every Composite Path) has a <strong>Control</strong> option:</p>
             <div class="flow-diagram">
@@ -355,7 +355,7 @@
             <p class="lang-en">Switching between the two preserves the current shape — you don't lose work when switching.</p>
 
             <h3 id="composto" class="lang-pt">Path Vinculado / Composto (Grupo)</h3>
-            <h3 id="composto" class="lang-en">Linked / Composite Path (Group)</h3>
+            <h3 id="composite" class="lang-en">Linked / Composite Path (Group)</h3>
             <p class="lang-pt">Além do Path individual da Trança, existe o <strong>Path Vinculado (Composto)</strong> — pra fazer várias mechas separadas seguirem um caminho em comum (uma franja ou um topete que precisa se mover junto).</p>
             <p class="lang-en">Besides the Braid's own individual Path, there's the <strong>Linked (Composite) Path</strong> — used to make several separate strands follow a shared path (a fringe or a topknot that needs to move together).</p>
             <p class="lang-pt">Excluir esse Path <strong>não apaga</strong> as mechas vinculadas — elas ficam livres, mantendo a forma que tinham no momento da exclusão. É o oposto do Path da Trança, de propósito: aqui as mechas já existiam antes de serem vinculadas.</p>
@@ -364,22 +364,22 @@
             <p class="lang-en">Selecting 2+ Composite Paths and pressing <kbd>Ctrl</kbd>+<kbd>J</kbd> joins several groups into a single Path — each original group keeps its own line inside it (the same way the Braid does), without recalculating or moving any strand.</p>
 
             <h3 id="path-ferramentas" class="lang-pt">Path com as Ferramentas</h3>
-            <h3 id="path-ferramentas" class="lang-en">Path with the Tools</h3>
+            <h3 id="path-tools" class="lang-en">Path with the Tools</h3>
             <p class="lang-pt">O Path interaje com pentear, mover, imã de raiz e ponta, excluir e crescer.</p>
             <p class="lang-en">The Path interacts with Comb, Move, Root and Tip Magnet, Delete, and Grow.</p>
 
             <h3 id="auto-atualizar" class="lang-pt">O "Auto-Atualizar" e sliders que parecem travados</h3>
-            <h3 id="auto-atualizar" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
+            <h3 id="auto-update" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
             <p class="lang-pt">A caixinha <strong>Auto-Atualizar</strong> controla se mudar um slider já reflete na viewport na hora. Desmarcada, os sliders continuam guardando o valor, mas só aplicam quando algo força uma atualização (trocar o Controle, ou entrar/sair do Edit Mode do Path). Se um slider "parou de responder", confira essa caixinha primeiro.</p>
             <p class="lang-en">The <strong>Auto-Update</strong> checkbox controls whether changing a slider already reflects in the viewport right away. Unchecked, sliders still store the value, but only apply it when something forces an update (switching Control, or entering/exiting Edit Mode on the Path). If a slider "stopped responding", check this box first.</p>
 
             <h3 id="seguranca" class="lang-pt">"Confirmar reconstrução do cabelo" (Segurança)</h3>
-            <h3 id="seguranca" class="lang-en">"Confirm hair rebuild" (Safety)</h3>
+            <h3 id="safety" class="lang-en">"Confirm hair rebuild" (Safety)</h3>
             <p class="lang-pt">Na aba Criar, dentro de <strong>Segurança</strong>, existe a caixinha <strong>Confirmar reconstrução do cabelo</strong>. Com ela marcada, o addon pede confirmação antes de sobrescrever uma mecha que foi editada manualmente (por exemplo, via Edit Mode nativo do Blender) — assim uma reconstrução automática não descarta sua edição manual sem avisar. Essa proteção vale pros <strong>sliders estruturais</strong> e, na Fita de Cabelo (Ribbon), pro <strong>Editor Preciso</strong>.</p>
             <p class="lang-en">On the Create tab, inside <strong>Safety</strong>, there's the <strong>Confirm hair rebuild</strong> checkbox. With it checked, the addon asks for confirmation before overwriting a strand that was manually edited (for example, via Blender's native Edit Mode) — so an automatic rebuild doesn't silently discard your manual edit. This protection applies to the <strong>structural sliders</strong> and, on the Hair Ribbon, to the <strong>Precise Editor</strong>.</p>
 
             <h3 id="estudio" class="lang-pt">A aba Estúdio é uma cena separada</h3>
-            <h3 id="estudio" class="lang-en">The Studio tab is a separate scene</h3>
+            <h3 id="studio" class="lang-en">The Studio tab is a separate scene</h3>
             <p class="lang-pt">Ao abrir o Estúdio de Textura, o addon cria (ou reaproveita) a cena <strong>"Hair Texture Studio"</strong> — luz e câmera próprias, isolada da sua cena principal.</p>
             <p class="lang-en">When you open the Texture Studio, the addon creates (or reuses) the <strong>"Hair Texture Studio"</strong> scene — its own light and camera, isolated from your main scene.</p>
 
@@ -432,7 +432,7 @@
             </figure>
 
             <h3 id="camera-so" class="lang-pt">Usando só a câmera do Estúdio, sem o cabelo/luz do addon</h3>
-            <h3 id="camera-so" class="lang-en">Using only the Studio camera, without the addon's hair/light</h3>
+            <h3 id="camera-only" class="lang-en">Using only the Studio camera, without the addon's hair/light</h3>
             <p class="lang-pt">Às vezes você só quer a câmera já enquadrada do Estúdio pra fazer bake de outra coisa, com sua própria iluminação — sem o cabelo procedural nem as luzes do addon.</p>
             <p class="lang-en">Sometimes you just want the Studio's already-framed camera to bake something else, with your own lighting — without the procedural hair or the addon's lights.</p>
             <ol>
@@ -462,7 +462,7 @@
               </figure>
 
             <h3 id="editor-perfil" class="lang-pt">Editor de Perfil: dicas rápidas</h3>
-            <h3 id="editor-perfil" class="lang-en">Profile Editor: quick tips</h3>
+            <h3 id="profile-editor" class="lang-en">Profile Editor: quick tips</h3>
             <ul>
               <li class="lang-pt"><strong>Espelhar X</strong> liga um espelho no eixo vertical — você edita só metade do contorno.</li>
               <li class="lang-en"><strong>Mirror X</strong> turns on a mirror on the vertical axis — you only edit half of the outline.</li>
@@ -479,7 +479,7 @@
               </figure>
 
             <h3 id="editor-uv" class="lang-pt">Editor de UV: dicas rápidas</h3>
-            <h3 id="editor-uv" class="lang-en">UV Editor: quick tips</h3>
+            <h3 id="uv-editor" class="lang-en">UV Editor: quick tips</h3>
             <p class="lang-pt">O Editor de UV é onde você organiza várias texturas de cabelo dentro de um atlas único — arraste e redimensione as células diretamente na viewport do editor, sem precisar sair pro UV Editor nativo do Blender.</p>
             <p class="lang-en">The UV Editor is where you organize several hair textures inside a single atlas — drag and resize the cells directly in the editor's viewport, without having to leave for Blender's native UV Editor.</p>
 
@@ -490,7 +490,7 @@
               </figure>
 
             <h3 id="montar-material" class="lang-pt">Montar Material, na aba Mapas</h3>
-            <h3 id="montar-material" class="lang-en">Build Material, on the Maps tab</h3>
+            <h3 id="build-material" class="lang-en">Build Material, on the Maps tab</h3>
             <p class="lang-pt">Na aba Mapas, a caixa <strong>"Montar Material"</strong> é o jeito rápido de montar o material final: em vez de conectar cada mapa de textura manualmente nos nós, você aponta pra uma <strong>pasta com as imagens</strong> (PNG ou JPG) e o addon identifica sozinho o que é cada uma pelo nome do arquivo, agrupa tudo como um "conjunto" e liga tudo automaticamente ao criar o material.</p>
             <p class="lang-en">On the Maps tab, the <strong>"Build Material"</strong> box is the fast way to assemble the final material: instead of manually wiring each texture map into the nodes, you point it at a <strong>folder with the images</strong> (PNG or JPG) and the addon identifies each one on its own by the file name, groups everything into a "set", and wires it all automatically when creating the material.</p>
             <p class="lang-pt">O addon reconhece o papel de cada imagem por palavras no nome do arquivo (não importa maiúscula/minúscula, nem se está com <code>_</code>, <code>-</code> ou espaço):</p>
@@ -527,7 +527,7 @@
             </div>
 
             <h3 id="otimizar-jogo" class="lang-pt">Otimizar: "Preparar para Jogo" (bake completo)</h3>
-            <h3 id="otimizar-jogo" class="lang-en">Optimize: "Prepare for Game" (full bake)</h3>
+            <h3 id="optimize-game" class="lang-en">Optimize: "Prepare for Game" (full bake)</h3>
             <p class="lang-pt">Além de só reduzir a curva pra uma mesh leve, a aba Otimizar tem um segundo modo, mais completo: <strong>Preparar para jogo</strong>. Ele automatiza os passos de deixar uma mecha pronta pra exportar de vez, tudo num clique:</p>
             <p class="lang-en">Besides just reducing the curve to a light mesh, the Optimize tab has a second, more complete mode: <strong>Prepare for Game</strong>. It automates the steps of getting a strand fully export-ready, all in one click:</p>
 
