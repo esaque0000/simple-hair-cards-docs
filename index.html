@@ -27,8 +27,8 @@
         <aside class="sidebar">
           <p class="brand lang-pt">Documentação</p>
           <p class="brand lang-en">Documentation</p>
-          <p class="brand-sub lang-pt">v1.0 · Compatível com <strong>Blender 4.2 LTS → 5.2 LTS</strong> (testado em 4.2, 4.3, 4.5 e 5.2)</p>
-          <p class="brand-sub lang-en">v1.0 · Works on <strong>Blender 4.2 LTS → 5.2 LTS</strong> (tested on 4.2, 4.3, 4.5, and 5.2)</p>
+          <p class="brand-sub lang-pt">v1.1 · Compatível com <strong>Blender 4.2 LTS → 5.2 LTS</strong> (testado em 4.2, 4.3, 4.5 e 5.2)</p>
+          <p class="brand-sub lang-en">v1.1 · Works on <strong>Blender 4.2 LTS → 5.2 LTS</strong> (tested on 4.2, 4.3, 4.5, and 5.2)</p>
           <div class="lang-switch" role="group" aria-label="Language / Idioma">
             <button type="button" class="lang-switch-btn" data-lang-choice="pt">PT</button>
             <button type="button" class="lang-switch-btn" data-lang-choice="en">EN</button>
@@ -489,7 +489,9 @@
             <h3 id="uv-editor" class="lang-en">UV Editor: quick tips</h3>
             <p class="lang-pt">O Editor de UV é onde você organiza várias texturas de cabelo dentro de um atlas único — arraste e redimensione as células diretamente na viewport do editor, sem precisar sair pro UV Editor nativo do Blender.</p>
             <p class="lang-en">The UV Editor is where you organize several hair textures inside a single atlas — drag and resize the cells directly in the editor's viewport, without having to leave for Blender's native UV Editor.</p>
-
+            <p class="lang-pt">Uma mesma curva pode ter várias splines, e cada uma pode usar um corte diferente do atlas. Entre em <strong>Edit Mode</strong>, selecione a spline e use <strong>Editar Recorte</strong> — só a selecionada muda; as outras mantêm o corte que já tinham. Pra reaproveitar um corte, selecione outras splines e clique em <strong>Reaplicar Último Corte</strong>. Em <strong>Object Mode</strong>, os dois botões continuam valendo pra curva inteira, como antes.</p>
+            <p class="lang-en">A single curve can hold several splines, and each one can use a different crop of the atlas. Enter <strong>Edit Mode</strong>, select the spline and use <strong>Edit Crop</strong> — only the selected one changes; the others keep the crop they already had. To reuse a crop, select other splines and click <strong>Reapply Last Cut</strong>. In <strong>Object Mode</strong>, both buttons still apply to the whole curve, as before.</p>
+              
               <figure class="media-slot">
                 <video src="assets/video/editor-uv-demo.mp4" autoplay loop muted playsinline preload="metadata"></video>
                 <figcaption class="lang-pt">Redimensionando e posicionando uma célula no Atlas de UV.</figcaption>
@@ -526,6 +528,12 @@
                 <tr class="lang-en"><td data-label="Map">Roughness</td><td data-label="What it's for">How matte or shiny the strand appears.</td><td data-label="Words"><code>roughness</code>, <code>rough</code>, <code>rgh</code>, <code>gloss</code></td></tr>
                 <tr class="lang-pt"><td data-label="Mapa">Specular</td><td data-label="Pra que serve">Intensidade do brilho especular.</td><td data-label="Palavras"><code>specular</code>, <code>spec</code>, <code>spc</code></td></tr>
                 <tr class="lang-en"><td data-label="Map">Specular</td><td data-label="What it's for">Specular highlight intensity.</td><td data-label="Words"><code>specular</code>, <code>spec</code>, <code>spc</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Random ID</td><td data-label="Pra que serve">Um tom de cinza diferente por fio — serve pra variar brilho ou cor entre os fios.</td><td data-label="Palavras"><code>randomid</code>, <code>random_id</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Random ID</td><td data-label="What it's for">A different shade of gray per strand — for varying brightness or color between strands.</td><td data-label="Words"><code>randomid</code>, <code>random_id</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Random Color</td><td data-label="Pra que serve">Uma cor diferente por fio.</td><td data-label="Palavras"><code>randomcolor</code>, <code>random_color</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Random Color</td><td data-label="What it's for">A different color per strand.</td><td data-label="Words"><code>randomcolor</code>, <code>random_color</code></td></tr>
+                <tr class="lang-pt"><td data-label="Mapa">Random Parent</td><td data-label="Pra que serve">Uma cor por mecha (grupo de fios) — fios da mesma mecha ficam com a mesma cor.</td><td data-label="Palavras"><code>randomparent</code>, <code>random_parent</code></td></tr>
+                <tr class="lang-en"><td data-label="Map">Random Parent</td><td data-label="What it's for">One color per clump of strands — strands in the same clump share the same color.</td><td data-label="Words"><code>randomparent</code>, <code>random_parent</code></td></tr>
               </tbody>
             </table>
             <div class="callout">
@@ -599,8 +607,10 @@
               <li class="lang-en"><strong>Texture map backgrounds:</strong> Normal Map and Alpha Map are exported with a solid background (fixed lilac and black, respectively); all other maps (Color, Roughness, Specular, AO) are exported with a transparent background. This isn't configurable in the current version.</li>
               <li class="lang-pt">A resolução máxima pra gerar arquivos de textura é <strong>4K</strong>.</li>
               <li class="lang-en">The maximum resolution for generating texture files is <strong>4K</strong>.</li>
-              <li class="lang-pt">O Bake do Estúdio sempre renderiza em <strong>Cycles</strong>, independente do motor configurado na cena — para cabelo (muita transparência sobreposta), o Cycles é mais rápido e não trava a interface durante o processo, ao contrário do EEVEE.</li>
-              <li class="lang-en">Studio Bake always renders in <strong>Cycles</strong>, regardless of the scene's configured engine — for hair (lots of overlapping transparency), Cycles is faster and doesn't freeze the interface during the process, unlike EEVEE.</li>
+              <li class="lang-pt">O Bake do Estúdio sempre renderiza em <strong>Cycles, na CPU</strong>, independente do motor configurado na cena — pra cabelo (muita transparência sobreposta), o Cycles é mais rápido e não trava a interface durante o processo, ao contrário do EEVEE, e a CPU evita que o Blender feche em placas de vídeo com pouca memória.</li>
+              <li class="lang-en">Studio Bake always renders in <strong>Cycles, on the CPU</strong>, regardless of the scene's configured engine — for hair (lots of overlapping transparency), Cycles is faster and doesn't freeze the interface during the process, unlike EEVEE, and the CPU keeps Blender from closing on GPUs with little memory.</li>
+              <li class="lang-pt">Cada curva aceita até <strong>20 cortes de UV diferentes</strong> (um por spline, ou compartilhados). Ao chegar no limite, o addon avisa — reaproveite um corte com <strong>Reaplicar Último Corte</strong> ou divida a curva.</li>
+              <li class="lang-en">Each curve supports up to <strong>20 different UV crops</strong> (one per spline, or shared). When the limit is reached, the addon warns you — reuse a crop with <strong>Reapply Last Cut</strong> or split the curve.</li>
             </ul>
           </section>
 
@@ -641,6 +651,11 @@
               <dt class="lang-en">Can I edit the Braid/Rope manually?</dt>
               <dd class="lang-pt">Sim — troque o Controle pra <strong>Geometria</strong>. Isso desliga o vínculo com o Path (e com os sliders), deixando a malha livre pra edição direta.</dd>
               <dd class="lang-en">Yes — switch Control to <strong>Geometry</strong>. This turns off the link with the Path (and with the sliders), leaving the mesh free for direct editing.</dd>
+              
+              <dt class="lang-pt">Posso usar fotos diferentes em splines diferentes da mesma curva?</dt>
+              <dt class="lang-en">Can I use different photos on different splines of the same curve?</dt>
+              <dd class="lang-pt">Sim — entre em Edit Mode, selecione a spline e edite o recorte só dela. Pra repetir um corte em outras splines, use <strong>Reaplicar Último Corte</strong>.</dd>
+              <dd class="lang-en">Yes — enter Edit Mode, select the spline and edit just its crop. To repeat a crop on other splines, use <strong>Reapply Last Cut</strong>.</dd>
             </dl>
           </section>
 
