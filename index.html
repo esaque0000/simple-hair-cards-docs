@@ -50,8 +50,8 @@
             <a href="#braid-path" class="lang-en">The Braid/Rope Path</a>
             <a href="#controle" class="lang-pt">Path vs. Geometria</a>
             <a href="#control" class="lang-en">Path vs. Geometry</a>
-            <a href="#composto" class="lang-pt">Path Vinculado (Composto)</a>
-            <a href="#composite" class="lang-en">Linked (Composite) Path</a>
+            <a href="#composto" class="lang-pt">Curvas Vinculadas</a>
+            <a href="#composite" class="lang-en">Linked Curves</a>
             <a href="#path-ferramentas" class="lang-pt">Path com as Ferramentas</a>
             <a href="#path-tools" class="lang-en">Path with the Tools</a>
             <a href="#seguranca" class="lang-pt">Confirmar reconstrução (Segurança)</a>
@@ -184,8 +184,8 @@
               <figure>
                 <img src="assets/img/pt/aba-modelar-pt.png" alt="Painel da aba Modelar" class="lang-pt">
                 <img src="assets/img/en/aba-modelar.png" alt="Model tab panel" class="lang-en">
-                <figcaption class="lang-pt"><strong>Modelar</strong> — escolha do Perfil, Resolução, Pontos de Controle e o Path Vinculado.</figcaption>
-                <figcaption class="lang-en"><strong>Model</strong> — Profile choice, Resolution, Control Points, and the Linked Path.</figcaption>
+                <figcaption class="lang-pt"><strong>Modelar</strong> — escolha do Perfil, Resolução, Pontos de Controle e as Curvas Vinculadas.</figcaption>
+                <figcaption class="lang-en"><strong>Model</strong> — Profile choice, Resolution, Control Points, and Linked Curves.</figcaption>
               </figure>
               <figure>
                 <img src="assets/img/pt/aba-mapas-pt.png" alt="Painel da aba Mapas" class="lang-pt">
@@ -317,8 +317,8 @@
 
             <h3 id="path" class="lang-pt">O Path da Trança/Corda</h3>
             <h3 id="braid-path" class="lang-en">The Braid/Rope Path</h3>
-            <p class="lang-pt">Toda Trança/Corda gera <strong>dois objetos</strong>: a trança em si (a malha trançada que você renderiza) e o <strong>Path</strong> — uma curva simples que funciona como o esqueleto dela.</p>
-            <p class="lang-en">Every Braid/Rope creates <strong>two objects</strong>: the braid itself (the braided mesh you render) and the <strong>Path</strong> — a simple curve that acts as its skeleton.</p>
+            <p class="lang-pt">Toda Trança/Corda (e todo Path das Curvas Vinculadas) tem uma opção de <strong>Controle</strong>:</p>
+            <p class="lang-en">Every Braid/Rope (and every Linked Curves Path) has a <strong>Control</strong> option:</p>
             <p class="lang-pt">Você edita o Path, não a trança. A malha fica travada pra seleção de propósito, pra você não mexer na geometria errada por engano.</p>
             <p class="lang-en">You edit the Path, not the braid. The mesh is locked from selection on purpose, so you don't accidentally edit the wrong geometry.</p>
             <ol>
@@ -330,8 +330,8 @@
               <li class="lang-en">When you exit Edit Mode, the braid rebuilds itself automatically.</li>
             </ol>
             <div class="callout">
-              <p class="lang-pt"><strong>Excluir o Path apaga a Trança/Corda inteira junto</strong> — os dois são uma coisa só. Se quiser manter a forma atual mas soltar o vínculo, use o Controle de Geometria (próxima seção) em vez de excluir.</p>
-              <p class="lang-en"><strong>Deleting the Path deletes the entire Braid/Rope with it</strong> — the two are a single thing. If you want to keep the current shape but drop the link, use the Geometry Control (next section) instead of deleting.</p>
+              <p class="lang-pt"><strong>Excluir o Path como objeto apaga a Trança/Corda junto</strong> (tecla <kbd>X</kbd> no Object Mode, pelo Outliner ou com o pincel Excluir) — os dois são uma coisa só. Pra manter a trança e só soltar o vínculo, apague os <strong>pontos</strong> do Path dentro do Edit Mode: selecione o Path, <kbd>Tab</kbd>, <kbd>A</kbd>, <kbd>X</kbd> → Vértices, <kbd>Tab</kbd>. A trança fica livre, com a forma atual.</p>
+              <p class="lang-en"><strong>Deleting the Path as an object deletes the Braid/Rope with it</strong> (<kbd>X</kbd> in Object Mode, from the Outliner, or with the Delete brush) — the two are a single thing. To keep the braid and just drop the link, delete the Path's <strong>points</strong> inside Edit Mode: select the Path, <kbd>Tab</kbd>, <kbd>A</kbd>, <kbd>X</kbd> → Vertices, <kbd>Tab</kbd>. The braid becomes free, keeping its current shape.</p>
             </div>
 
             <h3 id="controle" class="lang-pt">Controle: Path vs. Geometria</h3>
@@ -353,20 +353,34 @@
             </ul>
             <p class="lang-pt">Alternar entre os dois preserva a forma atual — não perde trabalho na troca.</p>
             <p class="lang-en">Switching between the two preserves the current shape — you don't lose work when switching.</p>
+            <div class="callout">
+              <p class="lang-pt"><strong>Proteção no modo Geometria:</strong> o Path fica travado pra seleção, pra você não apagá-lo por engano no viewport. Mas ele ainda pode ser apagado pelo <strong>Outliner</strong> — e aí a Trança/Corda some junto, mesmo em Geometria. Pra soltar a trança de verdade, volte o Controle pra Path e apague os pontos do Path no Edit Mode (veja <a href="#faq">Perguntas frequentes</a>).</p>
+              <p class="lang-en"><strong>Protection in Geometry mode:</strong> the Path is locked from selection so you don't delete it by accident in the viewport. It can still be deleted from the <strong>Outliner</strong>, though — and then the Braid/Rope is deleted with it, even in Geometry. To truly free the braid, switch Control back to Path and delete the Path's points in Edit Mode (see <a href="#faq">FAQ</a>).</p>
+            </div>
 
-            <h3 id="composto" class="lang-pt">Path Vinculado / Composto (Grupo)</h3>
-            <h3 id="composite" class="lang-en">Linked / Composite Path (Group)</h3>
-            <p class="lang-pt">Além do Path individual da Trança, existe o <strong>Path Vinculado (Composto)</strong> — pra fazer várias mechas separadas seguirem um caminho em comum (uma franja ou um topete que precisa se mover junto).</p>
-            <p class="lang-en">Besides the Braid's own individual Path, there's the <strong>Linked (Composite) Path</strong> — used to make several separate strands follow a shared path (a fringe or a topknot that needs to move together).</p>
+            <h3 id="composto" class="lang-pt">Curvas Vinculadas</h3>
+            <h3 id="composite" class="lang-en">Linked Curves</h3>
+            <p class="lang-pt">Além do Path individual da Trança, existem as <strong>Curvas Vinculadas</strong> (aba Modelar) — pra fazer várias mechas separadas seguirem um caminho em comum (uma franja ou um topete que precisa se mover junto). Selecione as mechas e clique em <strong>Vincular</strong>: o addon cria um Path compartilhado que controla todas elas. No Outliner, ele aparece com <code>_GroupPath</code> no nome.</p>
+            <p class="lang-en">Besides the Braid's own individual Path, there are <strong>Linked Curves</strong> (Model tab) — used to make several separate strands follow a shared path (a fringe or a topknot that needs to move together). Select the strands and click <strong>Link</strong>: the addon creates a shared Path that controls all of them. In the Outliner, it shows up with <code>_GroupPath</code> in its name.</p>
             <p class="lang-pt">Excluir esse Path <strong>não apaga</strong> as mechas vinculadas — elas ficam livres, mantendo a forma que tinham no momento da exclusão. É o oposto do Path da Trança, de propósito: aqui as mechas já existiam antes de serem vinculadas.</p>
             <p class="lang-en">Deleting this Path <strong>does not delete</strong> the linked strands — they become free, keeping the shape they had at the moment of deletion. This is the opposite of the Braid's Path, on purpose: here, the strands already existed before being linked.</p>
-            <p class="lang-pt">Selecionando 2+ Paths Compostos e apertando <kbd>Ctrl</kbd>+<kbd>J</kbd>, dá pra juntar vários grupos num Path só — cada grupo original mantém sua própria linha dentro dele (do mesmo jeito que a Trança faz), sem precisar recalcular nem mover nenhuma mecha.</p>
-            <p class="lang-en">Selecting 2+ Composite Paths and pressing <kbd>Ctrl</kbd>+<kbd>J</kbd> joins several groups into a single Path — each original group keeps its own line inside it (the same way the Braid does), without recalculating or moving any strand.</p>
+            <p class="lang-pt">Selecionando 2+ Paths de Curvas Vinculadas e apertando <kbd>Ctrl</kbd>+<kbd>J</kbd>, dá pra juntar vários grupos num Path só — cada grupo original mantém sua própria linha dentro dele (do mesmo jeito que a Trança faz), sem precisar recalcular nem mover nenhuma mecha.</p>
+            <p class="lang-en">Selecting 2+ Linked Curves Paths and pressing <kbd>Ctrl</kbd>+<kbd>J</kbd> joins several groups into a single Path — each original group keeps its own line inside it (the same way the Braid does), without recalculating or moving any strand.</p>
 
             <h3 id="path-ferramentas" class="lang-pt">Path com as Ferramentas</h3>
             <h3 id="path-tools" class="lang-en">Path with the Tools</h3>
-            <p class="lang-pt">O Path interaje com pentear, mover, imã de raiz e ponta, excluir e crescer.</p>
-            <p class="lang-en">The Path interacts with Comb, Move, Root and Tip Magnet, Delete, and Grow.</p>
+            <p class="lang-pt">Com o Controle em <strong>Path</strong>, os pincéis não mexem nos fios da Trança/Corda nem nas mechas das Curvas Vinculadas — eles agem direto no Path. Pode selecionar a trança ou a mecha normalmente: o addon redireciona o pincel sozinho.</p>
+            <p class="lang-en">With Control set to <strong>Path</strong>, the brushes don't touch the Braid/Rope strands or Linked Curves — they act directly on the Path. You can select the braid or strand as usual: the addon redirects the brush on its own.</p>
+            <ul>
+              <li class="lang-pt"><strong>Pentear, Mover e Ímãs de Raiz/Ponta</strong> — deformam o Path. Ao soltar o mouse, a Trança/Corda é reconstruída na nova forma, e as Curvas Vinculadas acompanham.</li>
+              <li class="lang-en"><strong>Comb, Move, and Root/Tip Magnets</strong> — deform the Path. When you release the mouse, the Braid/Rope is rebuilt in the new shape, and Linked Curves follow along.</li>
+              <li class="lang-pt"><strong>Crescer / Encurtar</strong> — muda o comprimento do Path; a trança cresce ou encurta junto.</li>
+              <li class="lang-en"><strong>Grow / Shorten</strong> — changes the Path's length; the braid grows or shortens with it.</li>
+              <li class="lang-pt"><strong>Excluir Cabelo</strong> — apaga a parte do Path que o pincel tocar. Se não sobrar nenhuma linha, o Path inteiro some, com o mesmo efeito da tecla <kbd>X</kbd>: a Trança/Corda é apagada junto, e o Path das Curvas Vinculadas só solta as mechas vinculadas.</li>
+              <li class="lang-en"><strong>Delete Hair</strong> — erases the part of the Path the brush touches. If no line is left, the whole Path is removed, with the same effect as <kbd>X</kbd>: the Braid/Rope is deleted with it, and a Linked Curves Path just releases its linked strands.</li>
+            </ul>
+            <p class="lang-pt">Com o Controle em <strong>Geometria</strong>, os pincéis voltam a agir direto na malha e o Path não é usado.</p>
+            <p class="lang-en">With Control set to <strong>Geometry</strong>, the brushes act directly on the mesh again and the Path isn't used.</p>
 
             <h3 id="auto-atualizar" class="lang-pt">O "Auto-Atualizar" e sliders que parecem travados</h3>
             <h3 id="auto-update" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
@@ -587,8 +601,8 @@
               <li class="lang-en"><strong>Closed-loop Braid/Rope (crown):</strong> closing the Path's ends (making it cyclic) isn't supported yet — the Path itself closes fine, but the woven geometry doesn't follow (it stays as an open strand). Planned as a dedicated mode in a future version.</li>   
               <li class="lang-pt">Mover o <strong>Path</strong> não atualiza a trança/mecha em tempo real — a reconstrução só dispara em momentos específicos (sair do Edit Mode do Path, trocar o Controle, usar um botão de aplicar ou usar as ferramentas que interagem com o path). Não espere ver a geometria acompanhando o movimento enquanto você arrasta.</li>
               <li class="lang-en">Moving the <strong>Path</strong> doesn't update the braid/strand in real time — the rebuild only fires at specific moments (exiting the Path's Edit Mode, switching Control, using an apply button, or using the tools that interact with the path). Don't expect to see the geometry follow the movement while you drag.</li>
-              <li class="lang-pt"><strong>Vincular ao Path Composto</strong> só funciona com curvas — não é possível vincular objetos de malha (mesh) diretamente.</li>
-              <li class="lang-en"><strong>Link to Composite Path</strong> only works with curves — it's not possible to link mesh objects directly.</li> 
+              <li class="lang-pt"><strong>Curvas Vinculadas</strong> só funciona com curvas — não é possível vincular objetos de malha (mesh) diretamente.</li>
+              <li class="lang-en"><strong>Linked Curves</strong> only works with curves — it's not possible to link mesh objects directly.</li>
               <li class="lang-pt">As ferramentas do addon funcionam por conta própria, de um jeito diferente das ferramentas nativas do Blender (são pincéis modais com atalhos próprios) — não espere o mesmo comportamento de sculpt/paint padrão do Blender.</li>
               <li class="lang-en">The addon's tools work on their own, differently from Blender's native tools (they're modal brushes with their own shortcuts) — don't expect the same behavior as Blender's standard sculpt/paint.</li>
               <li class="lang-pt"><strong>Gerar Textura a partir de imagem</strong> não tem preview ao vivo — você ajusta os parâmetros, gera, e só então vê o resultado.</li>
@@ -636,13 +650,27 @@
 
               <dt class="lang-pt">Apaguei o Path e perdi a Trança/Corda.</dt>
               <dt class="lang-en">I deleted the Path and lost the Braid/Rope.</dt>
-              <dd class="lang-pt">É o comportamento esperado — Path e Trança/Corda são uma coisa só. Se quiser manter a forma sem o vínculo, troque o Controle pra Geometria antes de excluir.</dd>
-              <dd class="lang-en">That's the expected behavior — the Path and the Braid/Rope are a single thing. If you want to keep the shape without the link, switch Control to Geometry before deleting.</dd>
+              <dd class="lang-pt">É o esperado quando o Path é apagado como objeto (tecla <kbd>X</kbd> no Object Mode, Outliner ou pincel Excluir) — Path e Trança/Corda são uma coisa só. Use <kbd>Ctrl</kbd>+<kbd>Z</kbd> pra recuperar e veja a pergunta abaixo.</dd>
+              <dd class="lang-en">That's expected when the Path is deleted as an object (<kbd>X</kbd> in Object Mode, the Outliner, or the Delete brush) — the Path and the Braid/Rope are a single thing. Press <kbd>Ctrl</kbd>+<kbd>Z</kbd> to get it back and see the question below.</dd>
 
               <dt class="lang-pt">Como excluir o Path sem perder a Trança/Corda?</dt>
               <dt class="lang-en">How do I delete the Path without losing the Braid/Rope?</dt>
-              <dd class="lang-pt">Exclua o path dentro de edit mode.</dd>
-              <dd class="lang-en">Delete the path from inside Edit Mode.</dd>
+              <dd class="lang-pt">Apague os <strong>pontos</strong> do Path dentro do Edit Mode, não o objeto:
+                <ol>
+                  <li>Com o Controle em <strong>Path</strong>, selecione o Path.</li>
+                  <li>Aperte <kbd>Tab</kbd> pra entrar no Edit Mode.</li>
+                  <li><kbd>A</kbd> pra selecionar todos os pontos, depois <kbd>X</kbd> → Vértices.</li>
+                  <li><kbd>Tab</kbd> pra sair.</li>
+                </ol>
+                A trança fica solta, mantém a forma atual e volta a ser selecionável.</dd>
+              <dd class="lang-en">Delete the Path's <strong>points</strong> inside Edit Mode, not the object:
+                <ol>
+                  <li>With Control set to <strong>Path</strong>, select the Path.</li>
+                  <li>Press <kbd>Tab</kbd> to enter Edit Mode.</li>
+                  <li><kbd>A</kbd> to select all points, then <kbd>X</kbd> → Vertices.</li>
+                  <li><kbd>Tab</kbd> to exit.</li>
+                </ol>
+                The braid becomes free, keeps its current shape, and is selectable again.</dd>
 
               <dt class="lang-pt">Meu mapa não apareceu no Montar Material.</dt>
               <dt class="lang-en">My map didn't show up in Build Material.</dt>
@@ -762,8 +790,8 @@
               </tbody>
             </table>
 
-            <h3 class="lang-pt">Duplicar e juntar (Trança/Corda e Path Composto)</h3>
-            <h3 class="lang-en">Duplicate and join (Braid/Rope and Composite Path)</h3>
+            <h3 class="lang-pt">Duplicar e juntar (Trança/Corda e Curvas Vinculadas)</h3>
+            <h3 class="lang-en">Duplicate and join (Braid/Rope and Linked Curves)</h3>
             <p class="lang-pt">Substituem os atalhos nativos do Blender <em>só quando faz sentido</em> — em qualquer outro objeto, o atalho continua sendo o padrão.</p>
             <p class="lang-en">These replace Blender's native shortcuts <em>only when it makes sense</em> — on any other object, the shortcut stays the default one.</p>
             <table class="stack-mobile">
@@ -772,12 +800,12 @@
               <tbody>
                 <tr class="lang-pt"><td data-label="Tecla"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Objeto ativo">Path de Trança/Corda</td><td data-label="O que faz">Duplica a Trança/Corda inteira (Path + mechas).</td></tr>
                 <tr class="lang-en"><td data-label="Key"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Active object">Braid/Rope Path</td><td data-label="What it does">Duplicates the entire Braid/Rope (Path + strands).</td></tr>
-                <tr class="lang-pt"><td data-label="Tecla"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Objeto ativo">Path Composto (Grupo)</td><td data-label="O que faz">Duplica o Grupo inteiro (Path + mechas vinculadas).</td></tr>
-                <tr class="lang-en"><td data-label="Key"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Active object">Composite Path (Group)</td><td data-label="What it does">Duplicates the entire Group (Path + linked strands).</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Objeto ativo">Path das Curvas Vinculadas</td><td data-label="O que faz">Duplica o grupo inteiro (Path + mechas vinculadas).</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Shift</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>D</kbd></td><td data-label="Active object">Linked Curves Path</td><td data-label="What it does">Duplicates the entire group (Path + linked strands).</td></tr>
                 <tr class="lang-pt"><td data-label="Tecla"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Objeto ativo">2+ Paths de Trança/Corda selecionados</td><td data-label="O que faz">Junta as tranças num grupo só.</td></tr>
                 <tr class="lang-en"><td data-label="Key"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Active object">2+ Braid/Rope Paths selected</td><td data-label="What it does">Joins the braids into a single group.</td></tr>
-                <tr class="lang-pt"><td data-label="Tecla"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Objeto ativo">2+ Paths Compostos (Grupo)</td><td data-label="O que faz">Junta os Paths num grupo só, cada um mantendo sua própria linha.</td></tr>
-                <tr class="lang-en"><td data-label="Key"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Active object">2+ Composite Path</td><td data-label="What it does">Joins the paths into a single group.</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Objeto ativo">2+ Paths de Curvas Vinculadas</td><td data-label="O que faz">Junta os Paths num grupo só, cada um mantendo sua própria linha.</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td data-label="Active object">2+ Linked Curves Paths</td><td data-label="What it does">Joins the Paths into a single group, each one keeping its own line.</td></tr>
               </tbody>
             </table>
           </section>
