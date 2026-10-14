@@ -54,6 +54,8 @@
             <a href="#composite" class="lang-en">Linked Curves</a>
             <a href="#path-ferramentas" class="lang-pt">Path com as Ferramentas</a>
             <a href="#path-tools" class="lang-en">Path with the Tools</a>
+            <a href="#rotacao" class="lang-pt">Rotação: Objeto vs. Edição</a>
+            <a href="#rotation" class="lang-en">Rotation: Object vs. Edit</a>
             <a href="#seguranca" class="lang-pt">Confirmar reconstrução (Segurança)</a>
             <a href="#safety" class="lang-en">Confirm rebuild (Safety)</a>
             <p class="group-label lang-pt">Texturizar</p>
@@ -382,6 +384,23 @@
             <p class="lang-pt">Com o Controle em <strong>Geometria</strong>, os pincéis voltam a agir direto na malha e o Path não é usado.</p>
             <p class="lang-en">With Control set to <strong>Geometry</strong>, the brushes act directly on the mesh again and the Path isn't used.</p>
 
+            <h3 id="rotacao" class="lang-pt">Rotação: Modo Objeto vs. Modo de Edição</h3>
+            <h3 id="rotation" class="lang-en">Rotation: Object Mode vs. Edit Mode</h3>
+            <p class="lang-pt">A rotação das abas <strong>Criar</strong> e <strong>Modelar</strong> é a mesma, e ela se comporta de um jeito diferente dependendo do modo do Blender:</p>
+            <p class="lang-en">The rotation on the <strong>Create</strong> and <strong>Model</strong> tabs is the same one, and it behaves differently depending on Blender's mode:</p>
+            <ul>
+              <li class="lang-pt"><strong>Modo Objeto</strong> — gira <strong>todas</strong> as mechas do cabelo juntas.</li>
+              <li class="lang-en"><strong>Object Mode</strong> — rotates <strong>all</strong> the hair strands together.</li>
+              <li class="lang-pt"><strong>Modo de Edição</strong> — gira <strong>só a mecha selecionada</strong>. Pra escolher qual, basta selecionar um <strong>ponto de controle</strong> dessa mecha.</li>
+              <li class="lang-en"><strong>Edit Mode</strong> — rotates <strong>only the selected strand</strong>. To choose which one, just select one of that strand's <strong>control points</strong>.</li>
+            </ul>
+            <p class="lang-pt">Ou seja: pra girar uma mecha individual depois de criada, entre no Modo de Edição, selecione um ponto de controle dela e use a rotação.</p>
+            <p class="lang-en">In other words: to rotate a single strand after it's been created, enter Edit Mode, select one of its control points, and use the rotation.</p>
+            <p class="lang-pt">A ferramenta <strong>Criar (Clique)</strong> tem uma rotação própria, usada enquanto você cria a mecha. Clicar com o mouse confirma a rotação. Se você apertar <kbd>R</kbd> de novo, a preview aparece onde o mouse estiver apontando, sem confirmar nada.</p>
+            <p class="lang-en">The <strong>Create (Click)</strong> tool has its own rotation, used while you create the strand. Clicking with the mouse confirms the rotation. If you press <kbd>R</kbd> again, the preview appears wherever the mouse is pointing, without confirming anything.</p>
+            <p class="lang-pt">Dica: a torção (rotação/tilt) pode acumular em edições sucessivas — veja <a href="#limitacoes">Limitações conhecidas</a>.</p>
+            <p class="lang-en">Tip: twist (rotation/tilt) can accumulate over successive edits — see <a href="#limitacoes">Known limitations</a>.</p>
+
             <h3 id="auto-atualizar" class="lang-pt">O "Auto-Atualizar" e sliders que parecem travados</h3>
             <h3 id="auto-update" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
             <p class="lang-pt">A caixinha <strong>Auto-Atualizar</strong> controla se mudar um slider já reflete na viewport na hora. Desmarcada, os sliders continuam guardando o valor, mas só aplicam quando algo força uma atualização (trocar o Controle, ou entrar/sair do Edit Mode do Path). Se um slider "parou de responder", confira essa caixinha primeiro.</p>
@@ -643,6 +662,11 @@
               <dd class="lang-pt">Confira a caixinha <strong>Auto-Atualizar</strong> — se estiver desmarcada, o valor é guardado mas só aplica quando algo força uma atualização.</dd>
               <dd class="lang-en">Check the <strong>Auto-Update</strong> checkbox — if it's unchecked, the value is stored but only applies when something forces an update.</dd>
 
+              <dt class="lang-pt">Como giro só uma mecha?</dt>
+              <dt class="lang-en">How do I rotate just one strand?</dt>
+              <dd class="lang-pt">Entre no <strong>Modo de Edição</strong>, selecione um ponto de controle da mecha e use a rotação. No Modo Objeto, a rotação afeta todas as mechas. Detalhes em <a href="#rotacao">Rotação: Objeto vs. Edição</a>.</dd>
+              <dd class="lang-en">Enter <strong>Edit Mode</strong>, select one of the strand's control points, and use the rotation. In Object Mode, the rotation affects all strands. Details in <a href="#rotation">Rotation: Object vs. Edit</a>.</dd>
+
               <dt class="lang-pt">Mexi na trança e ela voltou pro formato anterior.</dt>
               <dt class="lang-en">I edited the braid and it went back to its previous shape.</dt>
               <dd class="lang-pt">Você provavelmente está no Controle <strong>Path</strong> — edite o Path, não a malha da trança diretamente.</dd>
@@ -722,8 +746,8 @@
               <thead class="lang-pt"><tr><th>Tecla</th><th>O que faz</th></tr></thead>
               <thead class="lang-en"><tr><th>Key</th><th>What it does</th></tr></thead>
               <tbody>
-                <tr class="lang-pt"><td data-label="Tecla"><kbd>R</kbd></td><td data-label="O que faz">Liga/desliga o ajuste de <strong>rotação</strong> da mecha sendo criada.</td></tr>
-                <tr class="lang-en"><td data-label="Key"><kbd>R</kbd></td><td data-label="What it does">Toggles the <strong>rotation</strong> adjustment of the strand being created.</td></tr>
+                <tr class="lang-pt"><td data-label="Tecla"><kbd>R</kbd></td><td data-label="O que faz">Liga/desliga o ajuste de <strong>rotação</strong> da mecha sendo criada. Clique pra confirmar; se apertar <kbd>R</kbd> de novo, a preview aparece onde o mouse estiver apontando, sem confirmar nada. Veja <a href="#rotacao">Rotação: Objeto vs. Edição</a>.</td></tr>
+                <tr class="lang-en"><td data-label="Key"><kbd>R</kbd></td><td data-label="What it does">Toggles the <strong>rotation</strong> adjustment of the strand being created. Click to confirm; if you press <kbd>R</kbd> again, the preview appears wherever the mouse is pointing, without confirming anything. See <a href="#rotation">Rotation: Object vs. Edit</a>.</td></tr>
               </tbody>
             </table>
 
