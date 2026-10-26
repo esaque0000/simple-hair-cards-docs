@@ -56,6 +56,8 @@
             <a href="#path-tools" class="lang-en">Path with the Tools</a>
             <a href="#rotacao" class="lang-pt">Rotação: Objeto vs. Edição</a>
             <a href="#rotation" class="lang-en">Rotation: Object vs. Edit</a>
+            <a href="#nao-renomear" class="lang-pt">Não renomeie as mechas</a>
+            <a href="#dont-rename" class="lang-en">Don't rename strands</a>
             <a href="#seguranca" class="lang-pt">Confirmar reconstrução (Segurança)</a>
             <a href="#safety" class="lang-en">Confirm rebuild (Safety)</a>
             <p class="group-label lang-pt">Texturizar</p>
@@ -401,6 +403,15 @@
             <p class="lang-pt">Dica: a torção (rotação/tilt) pode acumular em edições sucessivas — veja <a href="#limitacoes">Limitações conhecidas</a>.</p>
             <p class="lang-en">Tip: twist (rotation/tilt) can accumulate over successive edits — see <a href="#limitacoes">Known limitations</a>.</p>
 
+            <h3 id="nao-renomear" class="lang-pt">Não renomeie as mechas (use Collections)</h3>
+            <h3 id="dont-rename" class="lang-en">Don't rename strands (use Collections)</h3>
+            <p class="lang-pt">O addon identifica as mechas pelo <strong>nome original</strong> do objeto. Se você renomear uma mecha no Outliner, o addon deixa de reconhecê-la, e botões como <strong>Aplicar</strong> e <strong>Aplicar Guia Agora</strong> podem mostrar o erro <em>"No strand found in the chosen scope"</em>, mesmo com o cabelo visível na cena.</p>
+            <p class="lang-en">The add-on identifies strands by the object's <strong>original name</strong>. If you rename a strand in the Outliner, the add-on no longer recognizes it, and buttons like <strong>Apply</strong> and <strong>Apply Guide Now</strong> may show the error <em>"No strand found in the chosen scope"</em>, even with the hair visible in the scene.</p>
+            <p class="lang-pt">Pra organizar o cabelo, use <strong>Collections</strong> do Blender (por exemplo, uma pra nuca, uma pras laterais e uma pra franja) em vez de renomear os objetos. Mechas ocultas no Outliner também não são encontradas, então deixe-as visíveis antes de aplicar.</p>
+            <p class="lang-en">To organize your hair, use Blender <strong>Collections</strong> (for example, one for the back, one for the sides and one for the fringe) instead of renaming the objects. Strands hidden in the Outliner are not found either, so make them visible before applying.</p>
+            <p class="lang-pt">Já renomeou sem querer? Desfaça com <kbd>Ctrl</kbd>+<kbd>Z</kbd> ou volte ao nome original da mecha.</p>
+            <p class="lang-en">Renamed by accident? Undo with <kbd>Ctrl</kbd>+<kbd>Z</kbd> or change the strand back to its original name.</p>
+
             <h3 id="auto-atualizar" class="lang-pt">O "Auto-Atualizar" e sliders que parecem travados</h3>
             <h3 id="auto-update" class="lang-en">"Auto-Update" and sliders that seem stuck</h3>
             <p class="lang-pt">A caixinha <strong>Auto-Atualizar</strong> controla se mudar um slider já reflete na viewport na hora. Desmarcada, os sliders continuam guardando o valor, mas só aplicam quando algo força uma atualização (trocar o Controle, ou entrar/sair do Edit Mode do Path). Se um slider "parou de responder", confira essa caixinha primeiro.</p>
@@ -666,6 +677,11 @@
               <dt class="lang-en">How do I rotate just one strand?</dt>
               <dd class="lang-pt">Entre no <strong>Modo de Edição</strong>, selecione um ponto de controle da mecha e use a rotação. No Modo Objeto, a rotação afeta todas as mechas. Detalhes em <a href="#rotacao">Rotação: Objeto vs. Edição</a>.</dd>
               <dd class="lang-en">Enter <strong>Edit Mode</strong>, select one of the strand's control points, and use the rotation. In Object Mode, the rotation affects all strands. Details in <a href="#rotation">Rotation: Object vs. Edit</a>.</dd>
+
+              <dt class="lang-pt">Aparece "No strand found in the chosen scope" ao clicar em Aplicar.</dt>
+              <dt class="lang-en">I get "No strand found in the chosen scope" when I click Apply.</dt>
+              <dd class="lang-pt">O addon não encontrou nenhuma mecha. Confira se: (1) você já criou pelo menos uma mecha (escolha a superfície e use Criar → Criar (Clique)); (2) o cabelo não está oculto no Outliner; (3) você não renomeou as mechas. Veja <a href="#nao-renomear">Não renomeie as mechas</a>.</dd>
+              <dd class="lang-en">The add-on couldn't find any strand. Check that: (1) you've created at least one strand (choose the surface and use Create → Create (Click)); (2) the hair isn't hidden in the Outliner; (3) you haven't renamed the strands. See <a href="#dont-rename">Don't rename strands</a>.</dd>
 
               <dt class="lang-pt">Mexi na trança e ela voltou pro formato anterior.</dt>
               <dt class="lang-en">I edited the braid and it went back to its previous shape.</dt>
